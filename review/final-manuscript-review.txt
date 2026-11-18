@@ -1,0 +1,64 @@
+Final review of The weight-three Lambert sum at the golden ratio is irrational
+Seven-page manuscript of 18 November 2026
+
+Mathematical correctness
+
+I read the manuscript from the definition of the Lambert sum through
+the field norm. I found no gap in either theorem. In particular the
+golden-ratio sum lies outside Q(sqrt(5)), and the value at 1+i lies
+outside Q(i). The general theorem covers Salem bases without any
+restriction on the arguments of their conjugates on the unit circle.
+
+In Lemma 2.1 I checked the inherited local cyclotomic bounds, the
+extracted base power and the degree sum against the integer-base
+manuscript. The two degree contributions add to 321/(64 pi^2).
+Integrality at every positive prime eliminates any remaining negative
+power of the formal base. This step makes it legitimate to use the
+same integer polynomial at all embeddings.
+
+In Proposition 3.1 the triple zeros kill the first two Euler
+derivatives at each completed node. Every differentiated term at the
+remaining nodes retains the summable geometric factor. This gives
+the stated positive cubic margin for complex bases as well as real ones.
+In Lemma 4.1 the circle of radius 1+1/K separates the moduli of the
+nodes. The moment recurrence includes the polynomial part of the partial
+fractions. The maximum modulus principle then gives the claimed
+O_Y(K^2 log^3(2K)) bound on the closed disk for each fixed Y.
+
+In Proposition 5.1 the Cauchy transform has a genuine pole at each
+inverse power of the base. If all sufficiently large determinants
+vanished, the resulting rational interpolants would agree. The order
+of the fixed error at infinity would bound the degrees of their common
+factors, while interpolation requires those factors to vanish at an
+unbounded number of distinct nodes. This proves nonvanishing on the
+subsequence needed in Section 6. On that subsequence the field norm
+is a positive integer in absolute value and the estimates force it
+to tend to zero.
+
+Exposition and sources
+
+For a reader familiar with field norms and complex analysis, the
+opening example gives a reason to introduce the formal value Y. At
+the conjugate of the golden ratio the Lambert series diverges, while
+the polynomial still has a value. The example with six linear
+factors in Section 3 explains the cubic rate. The abstract states the
+field exclusion with its full hypothesis.
+
+One citation in Lemma 2.1 can be made more precise. The local estimate
+for d at most K/2 is equation (4.8) of Section 4.2 of the integer-base
+manuscript. Section 4.4 assembles the local estimates, and Proposition
+A.1 supplies the improvement for d greater than K/2. An optional
+addition to the introduction would pair the two examples at weight
+one. On page 232 of his Kyoto paper, Tachiya's Theorem 1 covers 1+i
+with constant periodic coefficients, and Theorem 2 covers the golden
+ratio. The existing attribution for the golden ratio is accurate.
+
+Scope of verification
+
+I replayed the archived finite checks and compared all eleven moments
+for K=6 at t=7i/6 by exact rational complex arithmetic, including the
+moments with nonzero polynomial-part contributions. A clean build
+reproduced the reader PDF byte for byte. I inspected all seven pages.
+I contributed earlier versions of the exterior decay and complex
+nonvanishing arguments. The manuscript separately identifies the
+independent audit of the initial version.

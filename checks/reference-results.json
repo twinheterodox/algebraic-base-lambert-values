@@ -1,0 +1,22 @@
+{
+  "reference_environment": {
+    "Python": "3.14.4",
+    "SymPy": "1.14.0",
+    "mpmath": "1.3.0"
+  },
+  "stdout_lines": {
+    "lambert_checks.py": [
+      "Exact over Q(t), K=1: integer coefficients in t,X; degree in t = 3.",
+      "Exact over Q(t), K=2: integer coefficients in t,X; degree in t = 10.",
+      "Exact over Q(t), K=3: integer coefficients in t,X; degree in t = 24.",
+      "Exact over Q(t), K=4: integer coefficients in t,X; degree in t = 49.",
+      "Exact at integer bases: all 48 full polynomials in X passed.",
+      "Expanding moment comparison, K=1..5, three bases: 3.1674e-72 maximum scaled discrepancy.",
+      "Contracting moment comparison, K=1..6, two bases: 9.8119e-83 maximum scaled discrepancy.",
+      "gamma = 0.5081890617061003849; epsilon = 0.10292204940501072621."
+    ],
+    "check_circle_moments.py": [
+      "All 11 affine moments agree over Q(i) at t=7i/6, K=6. The polynomial quotient contributes at k=7,8,9,10."
+    ]
+  }
+}

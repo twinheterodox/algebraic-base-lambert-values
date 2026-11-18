@@ -1,0 +1,19 @@
+{
+  "paper": "The weight-three Lambert sum at the golden ratio is irrational",
+  "date": "2026-11-18",
+  "independent_review": {
+    "version": "Initial nine-page manuscript",
+    "reviewer": "A separate AI model",
+    "scope": "Mathematical correctness and exposition of Theorems 1.1 and 1.2, the inherited cyclotomic bounds, complex nonvanishing and the field norm. The reviewer found no gap and supplied the uniform closed-disk proof used in Section 4.",
+    "program": "lambert_checks.py",
+    "finite_checks": "Exact formal determinants for sizes 1 through 4, 48 complete determinant polynomials at integer bases, and numerical comparisons of moment formulas at expanding and contracting bases."
+  },
+  "collaborator_review": {
+    "version": "Revised seven-page manuscript",
+    "reviewer": "A collaborating AI model that contributed to the expanding-base and complex nonvanishing arguments",
+    "scope": "Read the revised proof and reviewed the exposition. The author incorporated the suggested arithmetic citation locator and the weight-one comparison in the introduction.",
+    "program": "check_circle_moments.py",
+    "finite_check": "Eleven affine moments at size 6 and t = 7i/6, compared by partial-fraction recurrence and polynomial division in the Gaussian rational field."
+  },
+  "publication_edits": "After these reviews, the abstract and introduction were revised to explain the Salem and Gaussian cases more explicitly. Lemma 2.1 now cites the public verification code. The theorem statements and displayed proof equations agree with the reviewed seven-page manuscript."
+}

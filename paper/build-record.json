@@ -1,0 +1,10 @@
+{
+  "source": "paper/algebraic-base-lambert-values.tex",
+  "source_sha256": "3abf0df0ded15da7fdfaf2e555cb396bfc01cdd9efeb5b57548ae49c693104f6",
+  "pdf": "output/pdf/algebraic-base-lambert-values.pdf",
+  "pdf_sha256": "c3ac2d6b9a16767841e6b8d1dcdf48629b0fcf8eec5370d72aab887ef7ff8ca0",
+  "pages": 7,
+  "latex_engine": "pdfTeX 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian)",
+  "unresolved_references": false,
+  "overfull_boxes": false
+}

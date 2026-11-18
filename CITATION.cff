@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "Please cite the manuscript."
+title: "The weight-three Lambert sum at the golden ratio is irrational"
+type: software
+authors:
+  - name: twinheterodox
+repository-code: "https://github.com/twinheterodox/algebraic-base-lambert-values"
+license: Apache-2.0
+preferred-citation:
+  type: report
+  title: "The weight-three Lambert sum at the golden ratio is irrational"
+  authors:
+    - name: twinheterodox
+  year: 2026

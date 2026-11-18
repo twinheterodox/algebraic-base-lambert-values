@@ -1,0 +1,612 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[left=.97in,right=.97in,top=.90in,bottom=.93in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!40!black,citecolor=blue!40!black,
+  urlcolor=blue!40!black]{hyperref}
+\hypersetup{pdftitle={The weight-three Lambert sum at the golden ratio is irrational},
+  pdfauthor={twinheterodox},pdfsubject={Number theory}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\numberwithin{equation}{section}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\OK}{\mathcal O}
+\DeclareMathOperator{\Nm}{N}
+\title{\fontsize{16}{20}\selectfont
+  The weight-three Lambert sum at the golden ratio is irrational}
+\author{twinheterodox}
+\date{18 November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let \(Z(b)=\sum_{n\ge1}n^2/(b^n-1)\). For an algebraic integer \(b\)
+with \(|b|>1\), we prove that \(Z(b)\notin\Q(b)\) if every conjugate
+outside the closed unit disk belongs to \(\{b,\bar b\}\). This includes
+all Pisot and Salem bases. For a Salem base we bound the polynomial
+approximations even at conjugates on the unit circle, where the series
+diverges. The theorem gives \(Z(\varphi)\notin\Q(\sqrt5)\) at the
+golden ratio \(\varphi=(1+\sqrt5)/2\) and \(Z(1+i)\notin\Q(i)\).
+\end{abstract}
+
+\section{The golden-ratio value}\label{sec:intro}
+
+For a complex number \(b\) with \(|b|>1\), define
+\begin{equation}\label{eq:lambert}
+ Z(b)=\sum_{n=1}^{\infty}\frac{n^2}{b^n-1}
+     =\sum_{m=1}^{\infty}\frac{\sigma_2(m)}{b^m},
+ \qquad \sigma_2(m)=\sum_{d\mid m}d^2 .
+\end{equation}
+Expanding each denominator as a geometric series gives the second
+expression. Both series converge absolutely. At the golden ratio
+every partial sum belongs to the quadratic field \(\Q(\sqrt5)\).
+
+\begin{theorem}\label{thm:gold}
+For \(\varphi=(1+\sqrt5)/2\),
+\[
+                     \sum_{n=1}^{\infty}\frac{n^2}{\varphi^n-1}
+                         \notin \Q(\sqrt5).
+\]
+In particular this real number is irrational.
+\end{theorem}
+
+The second root of \(x^2-x-1\) is \(-1/\varphi\). Suppose the Lambert
+sum at \(\varphi\) were \(\xi=u+v\sqrt5\) with \(u,v\in\Q\).
+Its conjugate would be \(Y=u-v\sqrt5\). Substituting \(-1/\varphi\)
+in the Lambert series makes its \(n\)th term asymptotic to \(-n^2\).
+To compare the two embeddings, we construct integer polynomials
+\(P_K(t,X)\) of degree at most \(K\) in \(X\). For some \(c>0\) we
+have \(|P_K(\varphi,\xi)|\le\exp(-cK^3)\) for all large \(K\). At
+\((-1/\varphi,Y)\) we bound their growth by \(\exp(o(K^3))\)
+\emph{for every fixed \(Y\)}. Choose a positive integer \(d\) for
+which \(d\xi\) is an algebraic integer. Then
+\(d^{2K}P_K(\varphi,\xi)P_K(-1/\varphi,Y)\) is an integer. Its absolute value
+tends to zero, and we show it is nonzero for arbitrarily large \(K\).
+
+For a nonreal base \(b\), absolute convergence gives
+\(Z(\bar b)=\overline{Z(b)}\), so decay at \(b\) gives decay at
+\(\bar b\) as well. It remains to control the other conjugates, which
+we can do whenever they all lie in the closed unit disk.
+
+\begin{theorem}\label{thm:main}
+Let \(b\) be an algebraic integer with \(|b|>1\). If every conjugate
+distinct from \(b\) and its complex conjugate \(\bar b\) has modulus
+at most one, then \(Z(b)\notin\Q(b)\).
+\end{theorem}
+
+A real algebraic integer \(b>1\) is a Pisot number when all its
+other conjugates have modulus less than one, and a Salem number when
+they lie in the closed unit disk with at least one on the unit circle.
+Theorem~\ref{thm:main} covers both classes. At a unit-circle conjugate
+\(u\) of a Salem number, \(|u^n-1|\le2\), so the terms of the series
+cannot tend to zero. Section~\ref{sec:disk} controls the polynomials there.
+
+The Gaussian integer \(1+i\) has norm \(2\), the smallest norm above
+one in \(\Z[i]\). Its only other conjugate is \(1-i\), so
+\(Z(1+i)\notin\Q(i)\). Every partial sum has rational real and imaginary
+parts. At least one of those coordinates is irrational in the limit.
+
+In the Lambert-series convention for \(q\)-zeta values,
+\(Z(b)=\zeta_{1/b}(3)\). Bundschuh and Zudilin singled out reciprocal
+Pisot and Salem parameters in their discussion of the arithmetic of
+these values \cite[\S6, after (41)]{BZ}.
+For the weight-one sum \(\sum_{n\ge1}1/(b^n-1)\), Tachiya's
+Theorems~1 and~2 give exclusion from \(\Q(b)\) at \(b=1+i\) and
+\(b=\varphi\), respectively \cite[p.~232]{Tachiya}. Dixit, Kumar and
+Pathak prove this exclusion at every Pisot base \cite[Corollary~1.2]{DKP}.
+For the weight-three sum \eqref{eq:lambert}, uplift-universal-inc
+proved irrationality at each positive integer base \(b\ge2\)
+\cite[Theorem~1.1]{Uplift}.
+
+The determinant and its cyclotomic factors come from the integer-base
+proof \cite[\S\S1--5 and Appendix~A]{Uplift}. Zudilin obtained cubic
+decay for Hankel determinants on geometric nodes in his work on the
+generalized \(q\)-logarithm \cite[\S4, (8)]{Zudilin}.
+Krisman used a norm over a quadratic field and controlled the conjugate
+of a determinant for reciprocal Fibonacci cubes \cite[\S5]{Krisman}.
+Here a single estimate controls \(P_K(t,Y)\) throughout the closed
+unit disk for every fixed \(Y\). We estimate the determinant on a
+slightly larger circle, where successive powers of \(t\) are
+separated in absolute value. Since \(P_K\) is a polynomial in \(t\), the maximum
+modulus principle carries that estimate to every remaining conjugate.
+
+\section{A single integral polynomial for every embedding}\label{sec:poly}
+
+Put \(q=b^{-1}\). To recover the summand \(j^2/(b^j-1)\) from
+\(x^j\), apply the Euler derivative \(\theta=x\,d/dx\) twice and sum
+over the points \(q,q^2,\ldots\). Thus for a function \(f\)
+holomorphic on a neighborhood of \(\lvert x\rvert\le |q|\), set
+\[
+                  L_q(f)=\sum_{m\ge1}(\theta^2 f)(q^m).
+\]
+Since \(\theta^2 f(x)=xf'(x)+x^2 f''(x)\), the summands are
+\(O_f(|q|^m)\). On monomials this gives
+\[
+ L_q(1)=0,\qquad L_q(x^j)=\frac{j^2}{b^j-1}\quad(j\ge1).
+\]
+The same functional recovers \emph{tails} of \(Z(b)\) on simple
+fractions. Indeed, with
+\[
+ g(y)=\sum_{j\ge1}j^2 y^j=\frac{y(1+y)}{(1-y)^3}\qquad(|y|<1),
+\]
+absolute summation gives \(Z(b)=\sum_{m\ge1}g(q^m)\) and
+\begin{equation}\label{eq:tail}
+ L_q\big((1-q^a x)^{-1}\big)=\sum_{m\ge1}g(q^{m+a})
+    =Z(b)-S_a(b),\qquad
+ S_a(t)=\sum_{m=1}^a\frac{t^m(t^m+1)}{(t^m-1)^3}.
+\end{equation}
+For example the first pole, at \(x=b\), removes just \(g(q)\)
+from \(Z(b)\). Thus every pole introduces the same unknown value.
+
+Now replace the base \(b\) and its value \(Z(b)\) by independent
+variables \(t\) and \(X\), respectively. The functional still acts
+in \(x\). For \(K\ge1\) the first \(K\) poles give the denominator
+\[
+                    D_{K,t}(x)=\prod_{a=1}^K(1-t^{-a}x).
+\]
+On functions \(p(x)/D_{K,t}(x)\), define \(\mathcal L_{t,X}\) by
+partial fractions over \(\Q(t,X)\). On the polynomial part use
+\(\mathcal L_{t,X}(1)=0\) and
+\(\mathcal L_{t,X}(x^j)=\mu_j(t)=j^2/(t^j-1)\) for \(j\ge1\).
+On the simple fractions use
+\(\mathcal L_{t,X}((1-t^{-a}x)^{-1})=X-S_a(t)\).
+By \eqref{eq:tail}, at \(t=b,\ X=Z(b)\) this agrees with \(L_q\).
+
+\begin{samepage}
+We arrange the moments in a determinant so that we can change the
+polynomial basis in both its rows and its columns. At \(b\), monic
+polynomials with triple zeros at the first few nodes \(q,q^2,\ldots\)
+remove those nodes even after two derivatives. Successive rows and
+columns then supply the small factors that give cubic decay.
+In the monomial basis the determinant is
+\begin{equation}\label{eq:Delta}
+ \Delta_{K,t}(X)=\det\left[
+    \mathcal L_{t,X}\big(x^{i+j}/D_{K,t}(x)\big)
+                         \right]_{0\le i,j<K}.
+\end{equation}
+\end{samepage}
+The entries depend only on \(i+j\), giving a Hankel matrix. Each is
+affine in \(X\), so the determinant has degree at most \(K\) in \(X\).
+Rational modifications of moment functionals appear in Uvarov's
+transformation of orthogonal polynomials \cite[\S1]{Uvarov} and in
+Krattenthaler's determinant identity \cite[Theorem~1]{Kratt}.
+The denominator \(D_{K,t}\) and the functional in \eqref{eq:Delta}
+are the specific weight-three construction of \cite[\S1]{Uplift}.
+
+Two features of this construction are essential for specialization.
+The poles of the coefficients in \(t\), away from zero, occur at
+roots of unity where nodes coincide or moments have poles.
+Cyclotomic factors clear them, and \(t^{e_K}\) divides all the
+resulting coefficients, where \(e_K=(K^3-K)/2\).
+Let \(\Phi_d\) be the \(d\)-th cyclotomic
+polynomial. In units of \(K^3\log|b|\), the determinant will save
+\(1/9\) and the extracted power of \(t\) another \(1/2\).
+The cost of clearing the denominators comes from the degree of
+\begin{equation}\label{eq:clearer}
+ C_K(t)=\prod_{d=1}^K \Phi_d(t)^{c_{K,d}},\qquad
+ c_{K,d}=
+ \begin{cases}
+  \left\lceil K^2/(4d)+2K+17d/16\right\rceil,& d\le K/2,\\
+  5(K-d)+3,& K/2<d\le K .
+ \end{cases}
+\end{equation}
+
+\begin{lemma}\label{lem:arithmetic}
+The polynomial used at every embedding is
+\[
+             P_K(t,X)=C_K(t)t^{-e_K}\Delta_{K,t}(X)\in\Z[t,X].
+\]
+It has degree at most \(K\) in \(X\). Moreover,
+\begin{equation}\label{eq:degree}
+ \deg C_K\le\gamma K^3+O(K^2\log(2K)),\qquad
+ \gamma=\frac{321}{64\pi^2},\qquad
+ \sum_{d=1}^K c_{K,d}=O(K^2\log(2K)).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+At a primitive \(d\)-th root of unity, \(t^a=t^c\) precisely when
+\(a\equiv c\pmod d\). The first bound in \eqref{eq:clearer} comes
+from \cite[\S4.2, (4.8)]{Uplift}. For \(d>K/2\) each class contains
+at most two indices, and \cite[Proposition~A.1]{Uplift} gives the
+second bound. Combining these local bounds as in \cite[\S4.4]{Uplift} gives
+\(C_K(t)\Delta_{K,t}(X)\in\Z[t,t^{-1}][X]\).
+Their cyclotomic degree sum gives the first bound in \eqref{eq:degree}
+\cite[\S4.5 and Proposition~A.1]{Uplift}. The range \(d\le K/2\)
+contributes \(161/(64\pi^2)\) to its leading coefficient and the
+range \(d>K/2\) contributes \(5/(2\pi^2)\). The bound on the sum of
+exponents follows directly from \eqref{eq:clearer}.
+
+It remains to justify using the extracted factor \(t^{e_K}\) as an
+identity in the base. We already know that the coefficients of \(P_K\)
+are integer Laurent polynomials. The integer-base divisibility result
+\cite[Proposition~3.1 and Appendix~A]{Uplift} gives
+\(P_K(p,X)\in\Z[X]\) for every positive rational prime \(p\).
+If a coefficient had a lowest term \(c t^{-h}\) with \(h>0\) and
+\(c\ne0\), choose a prime \(p\nmid c\). Multiplying its value at
+\(p\) by \(p^h\) gives an integer congruent to \(c\bmod p\), which
+contradicts the integrality of the value itself. This proves the
+assertion over \(\Z[t,X]\). The inverse-base polynomial normalization
+is also recorded in the rational-parameter companion to
+\cite[\S7.1]{Uplift}. The code in \cite{code} checks this integrality
+coefficientwise for \(1\le K\le4\).
+\end{proof}
+
+For later use, if \(t\ne0\) is fixed and \(|t|\ne1\), Möbius
+inversion in the cyclotomic product gives
+\begin{equation}\label{eq:cyclotomic-away}
+  \log|\Phi_d(t)|=\phi(d)\log^+|t|+O_t(1),\qquad
+  \log^+u=\log\max(1,u).
+\end{equation}
+Here \(\phi\) is Euler's totient. After factoring off the degree
+term, the absolute error is at most
+\(\sum_{h\ge1}-\log(1-r^h)\) with \(r=\min(|t|,|t|^{-1})<1\).
+The bound is independent of \(d\).
+
+\section{Decay where the Lambert series converges}\label{sec:expanding}
+
+Fix any complex \(b\) of modulus greater than one and put \(q=1/b\),
+\(r=|q|\). At \(X=Z(b)\), the determinant in \eqref{eq:Delta} is
+formed from the bilinear form \(L_q(fg/D_{K,b})\). Its first evaluation
+node is \(x=q\). A factor \((x-q)^3\) makes the value and the first
+two derivatives vanish at that node. Three more factors can remove
+the node \(q^2\), and so on. This accounts for the multiplicity
+three in the following basis from \cite[\S2]{Uplift}.
+
+\begin{proposition}\label{prop:decay}
+For every \(|b|>1\) and every \(K\ge1\),
+\[
+ |P_K(b,Z(b))|\le
+ \exp\bigl(-\varepsilon K^3\log|b|+O_b(K^2\log(2K))\bigr),
+ \qquad \varepsilon=\frac{11}{18}-\frac{321}{64\pi^2}>0.
+\]
+\end{proposition}
+
+\begin{proof}
+Define \(B_0=1\) and, for \(j\ge1\),
+\[
+ B_j(x)=\prod_{\ell=1}^j(x-q^{\lceil\ell/3\rceil}),\qquad
+ s_j=\sum_{\ell=1}^j\lceil\ell/3\rceil,\qquad R_j=\lceil j/3\rceil.
+\]
+Set \(s_0=R_0=0\). For example, \(B_6=(x-q)^3(x-q^2)^3\) and
+\(s_6=3\cdot1+3\cdot2=9\). More generally,
+\(s_{3h}=3(1+\cdots+h)\). Thus the exponent contributed by a row
+grows quadratically with its degree. Adding the exponents from all
+rows and columns will give the cubic power of \(K\).
+
+The change from monomials to the \(B_j\) is
+triangular with ones on its diagonal, so it preserves
+\(\Delta_{K,b}(Z(b))\). In the entry indexed by \(i,j\), put
+\(R=\max(R_i,R_j)\) and \(W=1/D_{K,b}\). For \(1\le m<R\)
+the node \(q^m\) contributes zero to \(L_q(B_iB_jW)\) because it
+is a triple zero of \(B_iB_j\).
+
+For \(m\ge\max(1,R)\), each factor \(x-q^a\) at \(x=q^m\) has
+modulus at most \(2r^a\). This supplies \(r^{s_i+s_j}\) in the
+product. To sum over the remaining nodes we also need decay in \(m\).
+Both \(\theta(x-q^a)\) and \(\theta^2(x-q^a)\) equal \(x\).
+At \(q^m\) their modulus is at most \(r^a r^{m-R}\), since \(a\le R\).
+On the unit disk the function \(W\) is bounded
+by \(\prod_{a\ge1}(1-r^a)^{-1}\). Cauchy's estimates then give, on
+the smaller disk \(|x|\le r\),
+\[
+       |W(x)|\le C_r,\qquad
+       |\theta W(x)|+|\theta^2W(x)|\le C_r |x|.
+\]
+Consequently every term of \(\theta^2(B_iB_jW)(q^m)\) has the
+extra summable factor \(r^{m-R}\), including the term in which
+both derivatives fall on \(W\). There are at most \((i+j+1)^2\)
+ordered choices of the differentiated factors. Summing over \(m\)
+gives
+\[
+       |L_q(B_iB_jW)|\le C'_r(i+j+1)^2\,2^{i+j}r^{s_i+s_j}.
+\]
+Take \(2^i r^{s_i}\) from each row and \(2^j r^{s_j}\) from each
+column. The remaining determinant has absolute value at most
+\(K![C'_r(2K)^2]^K\). The extracted power of \(r\) has exponent
+\(2\sum_{j<K}s_j=K^3/9+O(K^2)\), since \(s_j=j^2/6+O(j)\). Thus
+\begin{equation}\label{eq:rawdecay}
+    |\Delta_{K,b}(Z(b))|
+       \le \exp\bigl(-\tfrac19 K^3\log|b|+O_b(K^2)\bigr).
+\end{equation}
+This estimate uses only the moduli of the geometric nodes.
+Multiplying by \(b^{-e_K}\) saves another \((K^3-K)\log|b|/2\)
+in the logarithm. Equations \eqref{eq:degree} and
+\eqref{eq:cyclotomic-away} bound the logarithm of the cost of
+\(C_K(b)\) by \(\gamma K^3\log|b|+O_b(K^2\log(2K))\).
+The claimed margin is \(1/9+1/2-\gamma>0\), since \(\pi>3\).
+\end{proof}
+
+\section{One bound on the closed unit disk}\label{sec:disk}
+
+At a conjugate such as \(-1/\varphi\), the norm argument needs only
+an upper bound \(o(K^3)\) for \(\log^+|P_K(t,Y)|\) at each fixed \(Y\).
+The individual moments can have poles in the
+closed unit disk. For example, \(S_1(t)\) has a pole at \(t=1\), yet
+\(P_1(t,Y)=(t-1)^3Y-t(t+1)\) gives \(P_1(1,Y)=-2\).
+Since \(P_K(\cdot,Y)\) is a polynomial, we can estimate it on a
+circle just outside the disk.
+
+\begin{lemma}\label{lem:disk}
+For every fixed \(Y\in\C\),
+\[
+   \max_{|t|\le1}\log^+|P_K(t,Y)|
+        = O_Y\!\left(K^2\log^3(2K)\right).
+\]
+\end{lemma}
+
+\begin{proof}
+Choose \(|t|=1+1/K\). The outward shift keeps the nodes
+\(r_a=t^a\), \(1\le a\le K\), bounded by \(e\). By \eqref{eq:degree},
+the degree term \((\deg C_K)\log|t|\) costs only \(O(K^2)\) at this
+radius. At the same time,
+distinct nodes are separated uniformly in the argument of \(t\). For
+\(a\ne c\) the reverse triangle inequality gives
+\[
+    |1-r_a/r_c|\ge \big|1-|t|^{a-c}\big|\ge \frac1{K+1}.
+\]
+Consequently the weights in the partial fractions of \(1/D_{K,t}\)
+satisfy
+\[
+ \frac1{D_{K,t}(x)}=\sum_{a=1}^K\frac{w_a}{1-x/r_a},
+ \qquad w_a=\prod_{c\ne a}(1-r_a/r_c)^{-1},
+ \qquad |w_a|\le(K+1)^{K-1}.
+\]
+
+To bound a moment with numerator \(x^k\), put
+\(U_{a,k}=\mathcal L_{t,Y}(x^k/(1-x/r_a))\) and set \(\mu_0=0\).
+The identity \(x/(1-x/r_a)=r_a((1-x/r_a)^{-1}-1)\) gives
+\[
+ U_{a,0}=Y-S_a(t),\qquad
+ U_{a,k+1}=r_a\bigl(U_{a,k}-\mu_k(t)\bigr).
+\]
+For \(j\ge1\) we have \(|t^j-1|\ge1/K\). In \eqref{eq:tail}
+there are at most \(K\) terms, each of size \(O(K^3)\), since
+\(|t^m|\le e\) for \(m\le K\). Hence \(|S_a(t)|=O(K^4)\), and
+\(|\mu_j(t)|\le4K^3\) for \(1\le j\le2K\).
+Iterating the recurrence yields
+\(|U_{a,k}|\le e^{2K}(|Y|+O(K^4))\) throughout \(0\le k\le2K-2\).
+Each entry in \eqref{eq:Delta} is \(\sum_a w_aU_{a,k}\) with
+\(k=i+j\), so its absolute value is at most \(\exp(O_Y(K\log(2K)))\).
+Expanding the determinant gives
+\[
+                \log^+|\Delta_{K,t}(Y)|=O_Y(K^2\log(2K)).
+\]
+
+It remains to bound the cyclotomic product on the same circle.
+For \(h\ge1\), we have \(1/(K+1)\le |1-t^{-h}|\le2\).
+Möbius inversion for \(\Phi_d\) therefore gives
+\[
+ \log|\Phi_d(t)|\le
+    \phi(d)\log(1+1/K)+\tau(d)\log(2K+2),
+\]
+where \(\tau(d)\) is the number of positive divisors of \(d\).
+After weighting by \(c_{K,d}\), the first terms sum to the degree
+contribution above. For the divisor terms, \eqref{eq:clearer}
+gives \(c_{K,d}\le8K^2/d\)
+and
+\[
+ \sum_{d\le K}\frac{\tau(d)}d
+   =\sum_{uv\le K}\frac1{uv}\le (1+\log K)^2.
+\]
+Thus \(\log^+|C_K(t)|=O(K^2\log^3(2K))\). Since
+\(|t^{-e_K}|\le1\), this also bounds \(\log^+|P_K(t,Y)|\)
+on the circle, with an implied constant depending on \(Y\).
+Lemma~\ref{lem:arithmetic} makes \(t\mapsto P_K(t,Y)\) a polynomial.
+The maximum modulus principle gives the same bound on the closed unit
+disk, including the points where the original moment formulas have poles.
+\end{proof}
+
+\section{Infinitely many nonzero determinants}\label{sec:nonzero}
+
+To use the field norm we need arbitrarily large sizes at which the
+determinant is nonzero. For the functional \(L_q\), which can take
+complex values, we detect nonvanishing through its Cauchy transform.
+For a fixed moment sequence, Kronecker related eventual vanishing of
+its Hankel determinants to rationality of its generating function
+\cite[Arts.~VII and~IX]{Kronecker}. Zudilin used this criterion for
+the generalized \(q\)-logarithm \cite[\S4]{Zudilin}. Here the
+denominator changes with the size of the determinant.
+
+The zeros \(b,b^2,\ldots,b^K\) of \(D_{K,b}\) form nested interpolation
+sets. If all sufficiently large sizes were singular, one rational
+function would agree with the Cauchy transform at infinitely many of
+these nodes. The nodes tend to infinity, so the two functions would
+have the same Laurent expansion there. This is impossible because the
+transform has a pole at every \(b^{-m}\).
+
+\begin{proposition}\label{prop:nonzero}
+For every complex \(b\) with \(|b|>1\), there are arbitrarily large
+\(K\) for which \(P_K(b,Z(b))\ne0\).
+\end{proposition}
+
+\begin{proof}
+We adapt \cite[Proposition~5.1]{Uplift} to complex nodes. Put
+\(q=1/b\) and let
+\[
+ \mathcal C(z)=L_q\big((z-x)^{-1}\big)
+       =\sum_{m\ge1}\frac{q^m(z+q^m)}{(z-q^m)^3}
+                  \qquad(|z|>|q|).
+\]
+On compact sets disjoint from zero and the nodes, the tail is
+dominated by a constant times \(\sum_m|q|^m\), so the series
+continues meromorphically to the punctured plane. The nodes have
+distinct moduli, and at each \(q^m\) the coefficient of
+\((z-q^m)^{-3}\) is \(2q^{2m}\ne0\). Thus the function analytic
+near infinity has infinitely many poles on continuation and cannot
+be rational.
+
+Suppose the determinant of size \(k\) is zero. Write \(D_k=D_{k,b}\).
+A nonzero null vector supplies a polynomial \(Q_k\) of degree
+less than \(k\) satisfying
+\[
+           L_q(x^jQ_k(x)/D_k(x))=0\qquad(0\le j<k).
+\]
+We seek a polynomial \(T_k\) such that the error
+\(\mathcal C Q_k-T_k\) vanishes at \(b,\ldots,b^k\) and tends to
+zero at infinity. To impose the zeros, multiply the Cauchy transform
+of \(Q_k(x)/D_k(x)\) by \(D_k(z)\). Subtracting this error from
+\(\mathcal C(z)Q_k(z)\) gives \(T_k\). With \(L_q\) acting in \(x\),
+the two expressions are
+\begin{align}
+ E_k(z)&=D_k(z)L_q\!\left(\frac{Q_k(x)}{(z-x)D_k(x)}\right),
+                                                     \label{eq:error}\\
+ T_k(z)&=\mathcal C(z)Q_k(z)-E_k(z)
+       =L_q\!\left(\frac{Q_k(z)D_k(x)-D_k(z)Q_k(x)}
+                               {(z-x)D_k(x)}\right).\notag
+\end{align}
+The numerator defining \(T_k\) is divisible by \(z-x\), so \(T_k\)
+is a polynomial of degree less than \(k\). The functional in
+\eqref{eq:error} is holomorphic at every \(z=b^a,\ 1\le a\le k\),
+giving the desired zeros. At infinity expand \(1/(z-x)\) to \(k\)
+terms with remainder
+\(x^k/(z^k(z-x))\). All \(k\) terms disappear by the moment
+equations. To bound the remainder, choose a disk about zero of
+radius strictly between \(|q|\) and one. Throughout this disk
+the factor \(x^k Q_k(x)/((z-x)D_k(x))\) is \(O_k(|z|^{-1})\).
+Cauchy's inequalities bound its first two derivatives on
+\(|x|\le |q|\), and the Euler derivatives supply a summable factor
+\(|q|^m\) at \(q^m\). The remainder therefore contributes
+\(O_k(|z|^{-k-1})\) to the functional, giving \(E_k(z)=O_k(z^{-1})\)
+in \eqref{eq:error}. The same local bounds in \(z\) justify
+holomorphy at the exterior zeros.
+
+If sizes \(k\) and \(k+1\) both vanish, the polynomial
+\[
+      T_{k+1}Q_k-T_kQ_{k+1}=E_kQ_{k+1}-E_{k+1}Q_k
+\]
+has degree at most \(k-1\), by its growth at infinity, and vanishes
+at the \(k\) common exterior nodes. It is identically zero.
+Hence if all sufficiently large sizes vanished, the fractions
+\(T_k/Q_k\) would all represent one rational function \(T/Q\)
+in lowest terms, allowing \(T=0,\ Q=1\) for the zero function.
+Then \(T_k=V_kT,\ Q_k=V_kQ\) for a nonzero polynomial \(V_k\).
+If \(V_k(b^a)=0\), the interpolation condition \(E_k(b^a)=0\) holds
+whatever value \(\mathcal C\) takes there. We must bound how many
+interpolation nodes this common factor can account for.
+
+Since \(\mathcal C\) is nonrational, \(E=\mathcal C Q-T\) is meromorphic
+at infinity and has a nonzero leading term there. The estimate
+\(V_kE=O_k(1/z)\) forces
+\(E(z)\sim c z^{-h}\) there for some \(c\ne0\) and integer \(h\ge1\).
+Thus \(\deg V_k\le h-1\) for every sufficiently large \(k\), and
+\(E(b^a)\ne0\) for every sufficiently large \(a\).
+Then \eqref{eq:error} forces \(V_k(b^a)=0\) for all these \(a\le k\).
+The number of distinct zeros grows beyond \(h-1\). This contradiction
+proves that \(\Delta_{K,b}(Z(b))\ne0\) for arbitrarily large \(K\).
+The factors relating \(P_K\) to \(\Delta_{K,b}\) are nonzero at \(b\).
+\end{proof}
+
+\section{The field norm}\label{sec:norm}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Suppose that \(\xi=Z(b)\) belongs to \(E=\Q(b)\). Choose a
+positive integer \(d\) such that \(d\xi\) is in the ring of
+integers \(\OK_E\). Since \(b\in\OK_E\) and
+\(P_K\in\Z[t,X]\) has \(X\)-degree at most \(K\), we have
+\[
+                       y_K=d^K P_K(b,\xi)\in\OK_E .
+\]
+By Proposition~\ref{prop:nonzero}, \(y_K\ne0\) along an unbounded
+sequence of sizes. Its absolute norm at each such size is a positive
+integer, given by
+\[
+  |\Nm_{E/\Q}(y_K)|
+    =d^{K[E:\Q]}\prod_{\sigma:E\hookrightarrow\C}
+                  |P_K(\sigma b,\sigma\xi)|.
+\]
+At the chosen embedding, Proposition~\ref{prop:decay} supplies a
+negative term \(-\varepsilon K^3\log|b|\) in the logarithmic upper
+bound. When \(b\) is nonreal, the restriction of complex conjugation
+to \(E\) is the embedding into \(\C\) that sends \(b\) to \(\bar b\). It sends
+\(\xi\) to \(\overline{Z(b)}=Z(\bar b)\) and gives the same bound.
+For every other embedding, \(|\sigma b|\le1\). Lemma~\ref{lem:disk},
+with the fixed argument \(Y=\sigma\xi\), bounds the total logarithmic
+cost of these finitely many factors by \(O_{b,\xi}(K^2\log^3(2K))=o(K^3)\).
+
+Let \(r_b=1\) for real \(b\) and \(r_b=2\) otherwise. The fixed
+denominator contributes only \(K[E:\Q]\log d\). On the nonzero
+subsequence we obtain
+\[
+   0\le \log|\Nm_{E/\Q}(y_K)|
+       \le -r_b\varepsilon(\log|b|)K^3+o(K^3),
+\]
+which is impossible for large \(K\). This proves
+Theorem~\ref{thm:main} and, at \(b=\varphi\),
+Theorem~\ref{thm:gold}.
+\end{proof}
+
+\section*{Verification}
+Another AI model independently audited the mathematics and exposition of
+the initial 18 November 2026 manuscript and found no gap in either
+theorem. The uniform disk estimate in Section~\ref{sec:disk} follows
+the proof supplied in that audit.
+
+\small
+\begin{thebibliography}{10}
+\setlength{\itemsep}{1pt}
+\setlength{\parskip}{0pt}
+\bibitem{BZ}
+P.~Bundschuh and W.~Zudilin,
+Irrationality measures for certain \(q\)-mathematical constants,
+\emph{Math. Scand.} \textbf{101} (2007), 104--122.
+\href{https://doi.org/10.7146/math.scand.a-15034}{doi:10.7146/math.scand.a-15034}.
+
+\bibitem{DKP}
+A.~B.~Dixit, V.~Kumar and S.~S.~Pathak,
+Linear independence of values of the \(q\)-exponential and related
+functions, \emph{Bull. Aust. Math. Soc.} \textbf{109} (2024), 453--463.
+\href{https://doi.org/10.1017/S0004972723001028}{doi:10.1017/S0004972723001028}.
+
+\bibitem{Kratt}
+C.~Krattenthaler,
+A determinant identity for moments of orthogonal polynomials that
+implies Uvarov's formula for the orthogonal polynomials of rationally
+related densities, \href{https://arxiv.org/abs/2103.03969}{arXiv:2103.03969}
+(2021).
+
+\bibitem{Krisman}
+S.~Krisman,
+The sum of the reciprocal cubes of the Fibonacci numbers is irrational,
+\href{https://hexagonmath.org/2611.00473v1}{Hexagon 2611.00473v1} (2026).
+
+\bibitem{Kronecker}
+L.~Kronecker, Zur Theorie der Elimination einer Variabeln aus zwei
+algebraischen Gleichungen, \emph{Monatsber. K\"onigl. Preuss.
+Akad. Wiss. Berlin} (1881), 535--600.
+\href{https://www.e-rara.ch/download/pdf/5761162.pdf\#page=42}{Art.~IX in the collected works}.
+
+\bibitem{Tachiya}
+Y.~Tachiya, Irrationality of certain Lambert series,
+\emph{RIMS K\^oky\^uroku} \textbf{1384} (2004), 231--238.
+\href{https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1384-34.pdf}{Kyoto account}.
+See also \emph{Tokyo J. Math.} \textbf{27} (2004), 75--85,
+\href{https://doi.org/10.3836/tjm/1244208475}{doi:10.3836/tjm/1244208475}.
+
+\bibitem{Uplift}
+uplift-universal-inc, Irrationality of the Lambert-series value
+\(\zeta_{1/p}(3)\), research draft, 12 October 2026.
+\href{https://github.com/uplift-universal-inc/qzeta_3-irrationality/blob/main/paper/main.pdf}{Manuscript},
+\href{https://github.com/uplift-universal-inc/qzeta_3-irrationality/blob/main/docs/FUTURE_RESULTS.md}{companion results}.
+
+\bibitem{Uvarov}
+V.~B.~Uvarov, The connection between systems of polynomials orthogonal
+with respect to different distribution functions,
+\emph{USSR Comput. Math. Math. Phys.} \textbf{9} (1969), no.~6, 25--36.
+\href{https://doi.org/10.1016/0041-5553(69)90124-4}{doi:10.1016/0041-5553(69)90124-4}.
+
+\bibitem{Zudilin}
+W.~Zudilin, On the irrationality of generalized \(q\)-logarithm,
+\emph{Res. Number Theory} \textbf{2} (2016), article~15.
+\href{https://doi.org/10.1007/s40993-016-0042-x}{doi:10.1007/s40993-016-0042-x}.
+
+\bibitem{code}
+twinheterodox, \href{https://github.com/twinheterodox/algebraic-base-lambert-values}{Verification code for the weight-three Lambert sum}, GitHub (2026).
+\end{thebibliography}
+\end{document}
