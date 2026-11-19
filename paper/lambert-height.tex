@@ -1,0 +1,360 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[left=.96in,right=.96in,top=.90in,bottom=.91in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,microtype}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!40!black,citecolor=blue!40!black,
+  urlcolor=blue!40!black]{hyperref}
+\hypersetup{pdftitle={A height criterion for irrational weight-three Lambert sums},
+  pdfauthor={twinheterodox},pdfsubject={Number theory}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\numberwithin{equation}{section}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\lp}{\log^{+}}
+\title{\fontsize{16}{20}\selectfont A height criterion for irrational weight-three Lambert sums}
+\author{twinheterodox}
+\date{18 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For an algebraic number \(b\) with \(|b|>1\), the weight-three Lambert
+sum is \(Z(b)=\sum_{n\ge1}n^2/(b^n-1)\). We prove that \(Z(b)\)
+lies outside \(\Q(b)\) whenever the Mahler measure \(M(b)\) satisfies
+\(\log M(b)<(352\pi^2/2889)\,r\log|b|\), where \(r=1\) for a real
+base and \(r=2\) otherwise. The criterion allows several conjugates
+outside the unit disk and applies to nonintegral bases. In particular,
+\(Z(3+\sqrt3)\notin\Q(\sqrt3)\), although both conjugates of the base
+exceed one.
+\end{abstract}
+
+\section{Two expanding conjugates}
+
+For \(|b|>1\), the weight-three Lambert sum
+\[
+                         Z(b)=\sum_{n=1}^{\infty}\frac{n^2}{b^n-1}
+\]
+converges absolutely. With \(q=1/b\), this is a \(q\)-analogue of
+\(\zeta(3)\). It is irrational at every integer base \(b\ge2\)
+\cite[Theorem~1.1]{Uplift}. For an algebraic base \(b\), every partial
+sum lies in \(\Q(b)\). Can we show that the limit lies outside that field?
+
+At \(b=2+\sqrt3\) the answer is yes. The other conjugate,
+\(2-\sqrt3\), lies inside the unit disk, so the earlier algebraic-base
+theorem gives \(Z(2+\sqrt3)\notin\Q(\sqrt3)\)
+\cite[Theorem~1.2]{Previous}. Now increase the base by one. The field
+stays \(\Q(\sqrt3)\) and the other conjugate crosses the unit circle to
+\(3-\sqrt3>1\). We prove that \(Z(3+\sqrt3)\) still lies outside
+\(\Q(\sqrt3)\) by quantifying how large the other conjugates can be.
+
+For a specified algebraic base \(b\), write its primitive integer
+minimal polynomial as \(a_0\prod_{j=1}^d(x-b_j)\), with \(a_0>0\).
+Its \emph{Mahler measure} is
+\[
+                     M(b)=a_0\prod_{j=1}^d\max(1,|b_j|).
+\]
+The product counts each conjugate separately. In particular, a nonreal
+base and its complex conjugate contribute two factors of \(|b|\).
+
+\begin{theorem}\label{thm:height}
+Let \(b\) be algebraic with \(|b|>1\). Put \(r=1\) for real \(b\) and
+\(r=2\) for nonreal \(b\). If
+\begin{equation}\label{eq:height}
+              \frac{\log M(b)}{r\log|b|}<\frac{352\pi^2}{2889},
+\end{equation}
+then \(Z(b)\notin\Q(b)\).
+\end{theorem}
+
+Both roots \(3\pm\sqrt3\) have Mahler measure \(6\). To five decimal
+places the ratio in \eqref{eq:height} is \(1.15273\) at \(3+\sqrt3\)
+and \(7.54740\) at \(3-\sqrt3\), against a cutoff of \(1.20253\).
+When the larger root is the base, the smaller root contributes
+about \(15.27\%\) as much logarithmic growth as the larger one,
+within the roughly \(20.25\%\) allowed by the criterion.
+
+\begin{corollary}\label{cor:sqrt}
+At \(b=3+\sqrt3\), the real number \(Z(b)\) lies outside \(\Q(\sqrt3)\).
+\end{corollary}
+\begin{proof}
+The roots of \(x^2-6x+6\) are \(b\) and \(b'=3-\sqrt3\), so
+\(M(b)=bb'=6\). Since \(\sqrt3>12/7\), we have \(b>33/7\) and
+\(b'<9/7\). The inequality \(9^6<33\cdot7^5\) gives \((b')^6<b\).
+Thus \(\log M(b)<(7/6)\log b\), and
+\(7/6<352\pi^2/2889\) follows from \(\pi>31/10\).
+\end{proof}
+
+The same \(7/6\) bound gives a family of nonintegral examples. Let
+\(b\) be the larger root of \(2x^2-mx+1\) for an integer \(m\ge129\).
+Its discriminant \(m^2-8\) lies strictly between \((m-1)^2\) and
+\(m^2\). The lower bound on \(m\) makes the polynomial negative at
+\(2^6=64\), so \(2<b^{1/6}\). The other root is \(1/(2b)<1\),
+and hence \(M(b)=2b<b^{7/6}\).
+Theorem~\ref{thm:height} gives \(Z(b)\notin\Q(b)\) in this case as well.
+
+In general, \(\log M(b)-r\log|b|\) adds together \(\log a_0\) and
+the positive logarithms of the moduli of the remaining conjugates.
+Both contributions are controlled by the degree in the base of certain
+integer polynomials. That degree bounds their growth at the other
+expanding conjugates and the power of \(a_0\) in the integer resultant
+of Section~\ref{sec:places}. Section~\ref{sec:degree} proves that
+each polynomial has the same degree in the base as its cyclotomic
+clearing factor and identifies its leading coefficient.
+
+Bundschuh and V\"a\"an\"anen used the height ratio in \eqref{eq:height}
+for Lambert sums with periodic numerators \cite[\S2, (2)]{BV}.
+For \(b=v/u\) with \(u<v\) coprime positive integers, \(M(b)=v\),
+and \eqref{eq:height} becomes \(\log u/\log v<1-2889/(352\pi^2)\).
+This is the weight-three rational-parameter range recorded in
+\cite[\S7.1]{Uplift} and \cite[entry FUT-RATIONAL]{Companion},
+where the degree bound is used for homogenization. The stated
+restriction \(u/v\le1/2\) follows here from \(v>u^2\) and \(v\ge2\).
+
+\section{The moments and their determinant}\label{sec:inputs}
+
+We recall the polynomials whose values at conjugate bases will be multiplied.
+Their two arguments have different roles. The first is the base \(t\).
+The second is a variable \(X\) that can be set equal to the Lambert
+sum at one embedding and left arbitrary at another.
+
+First take \(t>1\) real. The Euler derivative \(\theta=x\,d/dx\)
+sends \(x^j\) to \(jx^j\), so applying it twice supplies the weight
+\(j^2\). The denominator comes from summing on a geometric sequence. Put
+\[
+ L_t(f)=\sum_{m\ge1}(\theta^2 f)(t^{-m}),\qquad
+ L_t(x^j)=j^2\sum_{m\ge1}t^{-mj}=\frac{j^2}{t^j-1}\quad(j\ge1).
+\]
+Also \(L_t(1)=0\). For \(f\) holomorphic near \([0,t^{-1}]\) the sum
+converges since \(\theta^2f(x)=xf'(x)+x^2f''(x)=O_f(x)\) near zero.
+
+To see what happens at a pole, write
+\(G(y)=\sum_{j\ge1}j^2y^j=y(1+y)/(1-y)^3\) for \(|y|<1\).
+Summing the geometric expansions of the Lambert series gives
+\(Z(t)=\sum_{m\ge1}G(t^{-m})\) by absolute convergence.
+For the first pole \(f(x)=(1-x/t)^{-1}\), differentiating its power
+series gives \(\theta^2 f(x)=G(x/t)\). The \(m\)th summand of \(L_t(f)\)
+is therefore \(G(t^{-(m+1)})\), skipping the first term \(G(t^{-1})\).
+The pole at \(t^a\) skips the first \(a\) terms in the same way, giving
+\[
+ L_t\big((1-x/t^a)^{-1}\big)=Z(t)-S_a(t),\qquad
+ S_a(t)=\sum_{m=1}^aG(t^{-m}).
+\]
+
+Now treat \(t\) as an indeterminate. For \(K\ge1\) put \(r_a=t^a\)
+for \(1\le a\le K\) and \(D(x)=\prod_{a=1}^K(1-x/r_a)\).
+Division and partial fractions express \(p(x)/D(x)\) over \(\Q(t)\)
+as a polynomial plus a linear combination of \((1-x/r_a)^{-1}\).
+Define \(\mathcal L_{t,X}\) by giving the polynomial part the monomial
+values above and each simple fraction the value \(X-S_a(t)\).
+For real \(t>1\), setting \(X=Z(t)\) recovers \(L_t\).
+These moments form the determinant
+\[
+ \Delta_{K,t}(X)=
+ \det\left[\mathcal L_{t,X}\!\left(\frac{x^{i+j}}{D(x)}\right)\right]_{0\le i,j<K}.
+\]
+Its entries are affine in \(X\). The coefficients can have poles where
+two nodes coincide or \(t^j=1\). Let \(C_K(t)\) be the monic product of
+cyclotomic polynomials specified in \cite[(2.3)]{Previous}. It clears
+the poles away from \(t=0\). Set
+\[
+ e_K=\frac{K^3-K}{2},\qquad d_K=\deg C_K,\qquad
+ P_K(t,X)=C_K(t)t^{-e_K}\Delta_{K,t}(X).
+\]
+After division by \(t^{e_K}\), the result is still an integer polynomial.
+The following four properties
+are proved in \cite[Lemmas~2.1 and~4.1, Propositions~3.1 and~5.1]{Previous}.
+We put \(\lp x=\log\max(1,x)\) for \(x\ge0\).
+
+\begin{proposition}\label{prop:inputs}
+Put \(\gamma=321/(64\pi^2)\) and \(\varepsilon=11/18-\gamma>0\).
+The following hold.
+\begin{enumerate}
+\item \(P_K\in\Z[t,X]\), \(\deg_XP_K\le K\), and
+      \(d_K\le\gamma K^3+O(K^2\log(2K))\).
+\item For fixed \(|b|>1\),
+      \(\log|P_K(b,Z(b))|\le-\varepsilon K^3\log|b|+
+        O_b(K^2\log(2K))\), with \(\log 0=-\infty\).
+\item For each fixed \(X_0\in\C\),
+      \(\max_{|t|\le1}\lp|P_K(t,X_0)|=O_{X_0}(K^2\log^3(2K))\).
+\item For each fixed \(|b|>1\) there are arbitrarily large \(K\)
+      for which \(P_K(b,Z(b))\ne0\).
+\end{enumerate}
+\end{proposition}
+
+The construction and the cyclotomic exponents come from the
+integer-base weight-three determinant of uplift-universal-inc
+\cite[\S\S1--5 and Appendix~A]{Uplift}. The cubic scale of decay for
+Hankel determinants on geometric nodes already occurs in Zudilin's
+work on the generalized \(q\)-logarithm \cite[\S4, (8)]{Zudilin}.
+The estimates in Proposition~\ref{prop:inputs} use the complex-base
+form of the weight-three determinant, including its bound on the
+closed disk for every fixed second argument.
+
+\section{An integer from all the conjugates}\label{sec:places}
+
+Take \(b=3+\sqrt3\) and \(b'=3-\sqrt3\). If \(Z(b)=u+v\sqrt3\)
+for rational \(u,v\), its field conjugate would be \(Y=u-v\sqrt3\).
+The two factors in the norm of \(P_K(b,Z(b))\) would then be
+\(P_K(b,Z(b))\) and \(P_K(b',Y)\). The series converges at both roots,
+yet conjugation can change the behavior of a limit. For example, it
+sends the sequence \((2-\sqrt3)^n\to0\) to \((2+\sqrt3)^n\to\infty\).
+To cover the unknown \(Y\), we need a bound at \(b'\) for every fixed
+second argument.
+Proposition~\ref{prop:inputs}(2) gives decay for the first factor.
+For the second, the degree in the \emph{base} controls growth from
+the unit circle out to \(b'\).
+
+The degree bound \(\deg_tP_K\le d_K\) from Lemma~\ref{lem:degree}
+suffices. For fixed \(Y\), the reversed polynomial
+\(u^{d_K}P_K(1/u,Y)\) is then
+holomorphic at the origin. Apply the maximum modulus principle to it
+at \(u=1/t\) for \(|t|>1\). Its modulus on the unit circle is bounded
+by Proposition~\ref{prop:inputs}(3). Together with that same estimate
+inside the disk this gives, for every \(t\in\C\),
+\begin{equation}\label{eq:arch}
+ \lp|P_K(t,Y)|\le d_K\lp |t|+O_Y(K^2\log^3(2K)).
+\end{equation}
+Thus the logarithmic cost at \(b'\) is at most \(d_K\log b'+o(K^3)\).
+For a general base, the same degree controls the denominators.
+
+\begin{proof}[Proof of Theorem~\ref{thm:height}, assuming Lemma~\ref{lem:degree}]
+Suppose \(\xi=Z(b)\) belongs to \(\Q(b)\). With
+\(d=[\Q(b):\Q]\), we may write \(\xi=g(b)/h\) for a fixed
+\(g\in\Z[t]\) of degree at most \(d-1\) and a positive integer \(h\).
+This representation specifies the conjugate value \(g(b_j)/h\) at
+\emph{every} root \(b_j\) of the minimal polynomial \(f\).
+Since \(\deg_X P_K\le K\),
+\[
+ Q_K(t)=h^K P_K\big(t,g(t)/h\big)\in\Z[t],\qquad
+ \deg Q_K\le d_K+(d-1)K .
+\]
+Choose the unbounded sequence on which \(Q_K(b)=h^KP_K(b,\xi)\ne0\).
+The irreducible \(f\) then has no common root with \(Q_K\).
+Their resultant is a nonzero integer, as it is the determinant of
+their integer Sylvester matrix. Its product expression is
+\begin{equation}\label{eq:res}
+ R_K=\operatorname{Res}(f,Q_K)
+     =a_0^{\deg Q_K}h^{dK}\prod_{j=1}^d P_K\big(b_j,g(b_j)/h\big).
+\end{equation}
+Thus \(a_0\), which may exceed one for a nonintegral base, is raised
+only to the degree of \(Q_K\). The fixed denominator \(h\) contributes
+only \(O_{b,\xi}(K)\) to \(\log|R_K|\).
+
+At \(b\) apply Proposition~\ref{prop:inputs}(2).
+If \(b\) is nonreal, \(g(\bar b)/h=\bar\xi=Z(\bar b)\), giving a
+second factor with the same decay. At each of the other \(d-r\)
+roots use \eqref{eq:arch} with the fixed value \(Y=g(b_j)/h\).
+In \eqref{eq:res} the leading coefficient \(a_0\) and these remaining
+roots together contribute at most
+\(d_K(\log M(b)-r\log|b|)+O_{b,\xi}(K^2\log^3(2K))\)
+to the logarithm. Consequently
+\begin{align*}
+ 0\le\log|R_K|
+ &\le -r\varepsilon K^3\log|b|
+       +d_K\big(\log M(b)-r\log|b|\big)+O_{b,\xi}(K^2\log^3(2K))\\
+ &\le \left(\gamma\log M(b)-\tfrac{11}{18}r\log|b|\right)K^3+o(K^3).
+\end{align*}
+Here \(\log M(b)-r\log|b|\ge0\), so the upper bound for \(d_K\)
+applies. Since \((11/18)/\gamma=352\pi^2/2889\), \eqref{eq:height}
+makes the last coefficient strictly negative.
+\end{proof}
+
+\section{The degree in the base}\label{sec:degree}
+
+\begin{lemma}\label{lem:degree}
+For every \(K\ge1\), the degree of \(P_K(t,X)\) in \(t\) is \(d_K\),
+and its coefficient of \(t^{d_K}\) is \((-1)^{K(K-1)/2}X^K\).
+\end{lemma}
+
+The remaining task is to see why the determinant contributes no
+additional power of \(t\) after division by \(t^{e_K}\).
+We let \(t\) tend to \(+\infty\) at fixed \(K\). The nodes \(r_a=t^a\)
+separate, and the polynomials that interpolate at them make the
+dependence on \(X\) diagonal.
+
+\begin{proof}
+Take real \(t\ge2\) and write \(L=L_t=\mathcal L_{t,Z(t)}\) as in
+Section~\ref{sec:inputs}. Changing \(Z(t)\) to \(Y\) adds \(Y-Z(t)\) at each simple fraction
+and leaves the polynomial moments fixed. The coefficient of the simple
+fraction at \(r_a\) in \(p/D\) is \(w_a p(r_a)\), where
+\[
+           w_a=\prod_{c\ne a}(1-r_a/r_c)^{-1}.
+\]
+This follows by multiplying by \(1-x/r_a\) and evaluating at \(r_a\).
+Thus the change in the functional on \(p/D\) is
+\((Y-Z(t))\sum_a w_a p(r_a)\), even when division gives a polynomial
+quotient.
+
+Choose the degree-\((K-1)\) cardinal polynomials
+\(\ell_a(x)=w_aD(x)/(1-x/r_a)\), characterized by
+\(\ell_a(r_c)=\delta_{ac}\). In the matrix with entries
+\(\mathcal L_{t,Y}(\ell_a\ell_c/D)\) the preceding change contributes
+only to the diagonal. The full matrix is
+\[
+   (Y-Z(t))W+WHW,\qquad
+   W=\operatorname{diag}(w_1,\ldots,w_K),\qquad
+   H_{ac}=L\!\left(\frac{D(x)}{(1-x/r_a)(1-x/r_c)}\right).
+\]
+This also covers \(a=c\), when the fraction retains a simple pole.
+The evaluation matrix from monomials to node values is
+\(V=(r_a^i)_{1\le a\le K,\,0\le i<K}\). The coefficients of
+the \(\ell_a\) are the columns of \(V^{-1}\), so returning to
+monomials multiplies the determinant by \((\det V)^2\).
+For each \(a<c\) the two factors \(1-r_a/r_c\) and \(1-r_c/r_a\)
+have product \(-(r_c-r_a)^2/(r_a r_c)\). Hence
+\[
+   (\det V)^2\prod_a w_a=(-1)^{\binom K2}
+        \left(\prod_a r_a\right)^{K-1}=(-1)^{\binom K2}t^{e_K}.
+\]
+Factoring \(W\) out of the matrix and multiplying by \(C_K(t)\) gives
+\begin{equation}\label{eq:limit}
+ P_K(t,Y)=(-1)^{\binom K2}C_K(t)\det(YI+E_t),
+ \qquad E_t=HW-Z(t)I .
+\end{equation}
+
+For \(t\ge2\) the rational function defining \(H_{ac}\) has modulus
+at most \(4\prod_{j\ge1}(1+2^{-j})\) on \(|x|\le1\).
+Cauchy's estimates bound its first two derivatives on \(|x|\le1/2\).
+Since \(\theta^2 f=xf'+x^2 f''\), its second Euler derivative is
+\(O(|x|)\) there. Summing at \(t^{-m}\) yields \(H_{ac}=O(1/(t-1))\).
+For fixed \(K\) the weights \(w_a\) stay bounded and \(Z(t)\to0\), so
+\(E_t\to0\) entrywise. The determinant \(\det(YI+E_t)\) is monic
+in \(Y\). Each lower coefficient is a sum of principal minors of
+\(E_t\) of positive order and hence tends to zero.
+By \eqref{eq:limit} the coefficient of \(Y^K\) in \(P_K(t,Y)\)
+is exactly \((-1)^{\binom K2}C_K(t)\). Every lower coefficient is
+\(o(t^{d_K})\) and is a polynomial in \(t\) by
+Proposition~\ref{prop:inputs}(1), so it has degree less than \(d_K\)
+whenever it is nonzero. Since \(C_K\) is monic of degree \(d_K\), the
+coefficient of \(t^{d_K}\) in \(P_K(t,Y)\) is \((-1)^{\binom K2}Y^K\).
+\end{proof}
+
+\section*{Verification}
+A collaborating AI model reviewed the mathematics and exposition of the
+initial 18 November 2026 draft, taking Proposition~\ref{prop:inputs}
+as a cited input. A separate AI model audited that draft for exposition.
+
+\small
+\begin{thebibliography}{9}
+\setlength{\itemsep}{1pt}
+\bibitem{BV} P.~Bundschuh and K.~V\"a\"an\"anen, Linear independence of certain
+Lambert and allied series, \emph{Acta Arith.} \textbf{120} (2005), 197--209.
+\href{https://doi.org/10.4064/aa120-2-7}{doi:10.4064/aa120-2-7}.
+\bibitem{Previous} twinheterodox, The weight-three Lambert sum at the
+golden ratio is irrational, \href{https://hexagonmath.org/2611.00623v1}{Hexagon 2611.00623v1} (2026).
+\bibitem{Uplift} uplift-universal-inc, Irrationality of the Lambert-series
+value \(\zeta_{1/p}(3)\), research draft (2026).
+\href{https://github.com/uplift-universal-inc/qzeta_3-irrationality/blob/main/paper/main.pdf}{Manuscript}.
+\bibitem{Companion} uplift-universal-inc, Results reserved for companion
+articles, rational-parameter result and supporting degree bound (2026).
+\href{https://github.com/uplift-universal-inc/qzeta_3-irrationality/blob/main/docs/FUTURE_RESULTS.md}{Companion inventory}.
+\bibitem{Zudilin} W.~Zudilin, On the irrationality of generalized
+\(q\)-logarithm, \emph{Res. Number Theory} \textbf{2} (2016), article~15.
+\href{https://doi.org/10.1007/s40993-016-0042-x}{doi:10.1007/s40993-016-0042-x}.
+\end{thebibliography}
+\end{document}

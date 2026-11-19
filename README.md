@@ -10,6 +10,14 @@ At the Gaussian integer $1+i$, every partial sum has rational real and imaginary
 
 [Read the paper (PDF)](output/pdf/algebraic-base-lambert-values.pdf) · [LaTeX source](paper/algebraic-base-lambert-values.tex)
 
+## Companion paper on the height of the base
+
+*A height criterion for irrational weight-three Lambert sums* proves that $Z(b)$ lies outside $\mathbb Q(b)$ when $\log M(b)<(352\pi^2/2889)\,r\log|b|$. Here $M(b)$ is the Mahler measure and $r$ is one for a real base and two for a nonreal base. The criterion gives $Z(3+\sqrt3)\notin\mathbb Q(\sqrt3)$ even though $3-\sqrt3$ also exceeds one. For a nonintegral example, it applies to the larger root of $2x^2-mx+1$ for every integer $m\ge129$.
+
+[Read the companion (PDF)](output/pdf/lambert-height.pdf) · [LaTeX source](paper/lambert-height.tex)
+
+Run `python3 -B checks/check_height.py` from the repository root to reproduce the two height ratios, the exact comparisons in Corollary 1.2, the pole-moment identity, and the leading coefficients in Lemma 4.1 for sizes 1 through 4. [Expected results](checks/height-results.json) · [Review scope](review/lambert-height-scope.json)
+
 ## Reproduce the checks
 
 Run these commands from the repository root in a Python environment.
@@ -32,5 +40,7 @@ python3 -B tools/build_paper.py
 ~~~
 
 The bibliography is in the main TeX file. The script runs pdfLaTeX twice and writes the PDF under `output/pdf/`. [Build record](paper/build-record.json)
+
+To build the companion, run `python3 -B tools/build_paper.py lambert-height`. [Companion build record](paper/lambert-height-build-record.json)
 
 The manuscript and explanatory text are offered under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The software is distributed under [Apache-2.0](LICENSE).

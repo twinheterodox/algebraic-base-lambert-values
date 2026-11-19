@@ -1,0 +1,7 @@
+{
+  "paper": "A height criterion for irrational weight-three Lambert sums",
+  "initial_draft": "A collaborating AI model reviewed the mathematics and exposition, taking the four determinant properties in Proposition 2.1 as cited inputs. A separate AI model audited the initial five-page manuscript for exposition.",
+  "revised_manuscript": "A collaborating AI model checked the moment derivation, the principal-minor argument for the leading coefficient, the exact inequality for the larger root and the displayed height ratios.",
+  "finite_checks": "The companion checker reproduces the rational comparisons for the larger root, the rounded ratios for both roots, the second Euler derivative at a pole, and every coefficient needed to test the leading-term assertion at K = 1, 2, 3, 4. It reuses the formal determinant calculation from the preceding paper.",
+  "cited_input": "The four properties in Proposition 2.1 are taken from The weight-three Lambert sum at the golden ratio is irrational, Hexagon 2611.00623v1."
+}

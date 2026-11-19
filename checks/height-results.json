@@ -1,0 +1,31 @@
+{
+  "exact_pole_moment": "passed",
+  "rational_inequalities_for_the_larger_root": "passed",
+  "rounded_values": {
+    "ratio_at_larger_root": "1.15273230608636",
+    "ratio_at_smaller_root": "7.54740326800655",
+    "cutoff": "1.20252708521407"
+  },
+  "exact_determinant_coefficients": [
+    {
+      "K": 1,
+      "degree_in_t": 3,
+      "leading_sign": 1
+    },
+    {
+      "K": 2,
+      "degree_in_t": 10,
+      "leading_sign": -1
+    },
+    {
+      "K": 3,
+      "degree_in_t": 24,
+      "leading_sign": -1
+    },
+    {
+      "K": 4,
+      "degree_in_t": 49,
+      "leading_sign": 1
+    }
+  ]
+}

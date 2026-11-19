@@ -1,5 +1,6 @@
 """Build the paper and check the final LaTeX log for reference and layout errors."""
 from pathlib import Path
+import argparse
 import hashlib
 import json
 import os
@@ -8,9 +9,13 @@ import shutil
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-STEM = "algebraic-base-lambert-values"
+original = "algebraic-base-lambert-values"
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("paper", nargs="?", default=original,
+                    choices=[original, "lambert-height"], help="manuscript to build")
+STEM = parser.parse_args().paper
 source = Path("paper") / (STEM + ".tex")
-build = Path("build/latex")
+build = Path("build/latex") if STEM == original else Path("build/latex") / STEM
 output = Path("output/pdf") / (STEM + ".pdf")
 (ROOT / build).mkdir(parents=True, exist_ok=True)
 (ROOT / output).parent.mkdir(parents=True, exist_ok=True)
@@ -44,5 +49,6 @@ record = {
     "unresolved_references": False,
     "overfull_boxes": False,
 }
-(ROOT / "paper/build-record.json").write_text(json.dumps(record, indent=2) + "\n")
+record_name = "build-record.json" if STEM == original else f"{STEM}-build-record.json"
+(ROOT / "paper" / record_name).write_text(json.dumps(record, indent=2) + "\n")
 print(json.dumps(record, indent=2))

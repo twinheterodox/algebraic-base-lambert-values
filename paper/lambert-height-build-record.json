@@ -1,0 +1,10 @@
+{
+  "source": "paper/lambert-height.tex",
+  "source_sha256": "203fc851b1aa5f91e136ae7de9652f314d86912754c6ffd6aa9cdc7b19606fd3",
+  "pdf": "output/pdf/lambert-height.pdf",
+  "pdf_sha256": "3d39d28eb82a846fd10aa7d8c56cda7b31ae91adce2b50f3583fd6cb72253cc0",
+  "pages": 5,
+  "latex_engine": "pdfTeX 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian)",
+  "unresolved_references": false,
+  "overfull_boxes": false
+}

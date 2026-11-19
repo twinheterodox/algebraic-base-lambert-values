@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Please cite the manuscript."
+message: "Please cite the paper you use. The companion height paper is listed under references."
 title: "The weight-three Lambert sum at the golden ratio is irrational"
 type: software
 authors:
@@ -12,3 +12,11 @@ preferred-citation:
   authors:
     - name: twinheterodox
   year: 2026
+  url: "https://hexagonmath.org/2611.00623v1"
+references:
+  - type: report
+    title: "A height criterion for irrational weight-three Lambert sums"
+    authors:
+      - name: twinheterodox
+    year: 2026
+    url: "https://github.com/twinheterodox/algebraic-base-lambert-values/blob/main/output/pdf/lambert-height.pdf"
