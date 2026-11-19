@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Please cite the paper you use. The companion height paper is listed under references."
+message: "Please cite the paper you use. The height and Mersenne papers are listed under references."
 title: "The weight-three Lambert sum at the golden ratio is irrational"
 type: software
 authors:
@@ -20,3 +20,9 @@ references:
       - name: twinheterodox
     year: 2026
     url: "https://github.com/twinheterodox/algebraic-base-lambert-values/blob/main/output/pdf/lambert-height.pdf"
+  - type: report
+    title: "The sum of the reciprocal Mersenne cubes is irrational"
+    authors:
+      - name: twinheterodox
+    year: 2026
+    url: "https://github.com/twinheterodox/algebraic-base-lambert-values/blob/main/output/pdf/reciprocal-mersenne-cubes.pdf"

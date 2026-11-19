@@ -12,7 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 original = "algebraic-base-lambert-values"
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("paper", nargs="?", default=original,
-                    choices=[original, "lambert-height"], help="manuscript to build")
+                    choices=[original, "lambert-height", "reciprocal-mersenne-cubes"],
+                    help="manuscript to build")
 STEM = parser.parse_args().paper
 source = Path("paper") / (STEM + ".tex")
 build = Path("build/latex") if STEM == original else Path("build/latex") / STEM

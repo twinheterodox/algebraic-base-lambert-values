@@ -1,0 +1,598 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[letterpaper,margin=0.93in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={The sum of the reciprocal Mersenne cubes is irrational},
+  pdfauthor={twinheterodox}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Ord}{\operatorname{ord}}
+\newcommand{\cl}{\mathcal L}
+\newcommand{\ph}{\varphi}
+\newcommand{\ep}{\varepsilon}
+\DeclareMathOperator{\rank}{rank}
+\allowdisplaybreaks[1]
+\raggedbottom
+
+\title{\Large\bfseries The sum of the reciprocal Mersenne cubes is irrational}
+\author{twinheterodox\\[2pt]\normalsize Prepared with Codex}
+\date{18 November 2026}
+\makeatletter
+\renewcommand{\@maketitle}{%
+  \begin{center}
+    {\@title\par}\medskip
+    \begin{tabular}{c}\@author\end{tabular}\par\smallskip
+    {\small\@date\par}
+  \end{center}}
+\makeatother
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The sum of the reciprocal cubes of the Mersenne numbers \(2^n-1\) is
+irrational. More generally, for \(|b|>1\) let
+\(M_j(b)=\sum_{n\ge1}(b^n-1)^{-j}\).
+For every integer \(b\ge2\), we prove that \(1,M_1(b),M_2(b),M_3(b)\)
+are linearly independent over \(\Q\). These four numbers are also
+linearly independent over \(\Q(b)\) whenever \(b\) is an algebraic
+integer with \(|b|>1\) and every conjugate other than \(b\) and
+\(\bar b\) lies in the closed unit disk. This includes all Pisot and
+Salem numbers.
+\end{abstract}
+
+The reciprocals of the Mersenne numbers \(1,3,7,15,\ldots\) sum to
+the Erd\H{o}s--Borwein constant. The number \(1\), this constant, and
+the sum of the squares of those reciprocals are linearly independent
+over \(\Q\) \cite[Theorem~1.3]{PVA}. We prove that adjoining the sum
+of their cubes raises the dimension of the rational span from three
+to four. For a complex base \(b\) with \(|b|>1\) and a positive
+integer \(j\), write
+\[
+                  M_j(b)=\sum_{m\ge1}\frac{1}{(b^m-1)^j}.
+\]
+
+\begin{theorem}\label{thm:main}
+For every integer \(b\ge2\), the four numbers
+\(1,M_1(b),M_2(b),M_3(b)\) are linearly independent over \(\Q\).
+In particular \(1+3^{-3}+7^{-3}+15^{-3}+\cdots\) is irrational.
+\end{theorem}
+
+At the golden ratio \(b=(1+\sqrt5)/2\), even coefficients in
+\(\Q(\sqrt5)\) give no nontrivial relation among these four numbers.
+Corollary~\ref{cor:field} gives the general condition on the
+conjugates of an algebraic base.
+
+To compare the theorem with earlier results, consider the Lambert sums
+\[
+                     Z_s(b)=\sum_{n\ge1}\frac{n^{s-1}}{b^n-1}.
+\]
+Expanding \(x^j/(1-x)^j\) at \(x=b^{-m}\) and summing in \(m\) gives
+\begin{equation}\label{eq:triangle}
+ M_1=Z_1,\qquad M_2=Z_2-Z_1,\qquad
+ 2M_3=Z_3-3Z_2+2Z_1 .
+\end{equation}
+This triangular change of variables is invertible over \(\Q\).
+The first two identities translate the independence of \(1,Z_1,Z_2\),
+proved by Postelmans and Van Assche and also by Zudilin
+\cite[Theorem~2]{ZudPair}, into the three-number result used above.
+The public inventory for the weight-three determinant reports a
+companion result asserting independence of \(1,Z_2,Z_3\)
+\cite[entry FUT-LI]{UpliftCompanion}.
+Both three-number statements are compatible with \(Z_3-3Z_2+2Z_1\) being rational,
+which by \eqref{eq:triangle} would make the reciprocal cube sum rational.
+
+We argue by contradiction. For a fixed nonzero triple \(A,B,C\), let
+\[
+                   \xi=A Z_1(b)+B Z_2(b)+C Z_3(b).
+\]
+Under a rational relation we can take \(A,B,C,\xi\) all integral.
+We adapt the weight-three determinant of \cite[\S\S1--2]{Uplift} to
+this combination of Lambert sums. After clearing its denominators and
+dividing out a common power of \(b\), we obtain an integer. We show
+that its absolute value tends to zero with the size of the determinant
+and that infinitely many of these integers are nonzero. The weight-one
+term \(AZ_1\) requires a subtraction at zero in each summand. That
+subtraction affects both the common power of \(b\) and the estimate
+at the value \(\xi\).
+
+\section{One determinant for a quadratic weight}
+
+The series converge absolutely for complex \(|b|>1\). Put \(q=1/b\).
+For \(j\ge1\), summing \(x^j\) over the points \(q^m\), \(m\ge1\),
+gives \(1/(b^j-1)\). The Euler derivative \(\theta=x\,d/dx\)
+multiplies \(x^j\) by \(j\), so \(A+B\theta+C\theta^2\) supplies
+the numerator \(A+Bj+Cj^2\).
+
+For a general holomorphic function \(f\), the term \(Af(q^m)\)
+tends to \(Af(0)\). To obtain a convergent series we subtract
+this limit in every summand and put
+\begin{equation}\label{eq:L}
+ L(f)=\sum_{m\ge1}
+ \bigl[A(f(q^m)-f(0))+B(\theta f)(q^m)+C(\theta^2f)(q^m)\bigr].
+\end{equation}
+For \(f\) holomorphic on a neighborhood of \(|x|\le |q|\), each
+summand is \(O_f(|q|^m)\) for fixed \(A,B,C,q\).
+Thus \(L(1)=0\), and \(L(x^j)=(A+Bj+Cj^2)/(b^j-1)\) for \(j\ge1\).
+To see why poles at \(b,b^2,\ldots\) are useful, write the first
+\(a\) summands at a variable base \(t\) as \(S_a(t)\), where
+\[
+ h(v)=\frac{A}{v-1}+\frac{Bv}{(v-1)^2}
+                +\frac{Cv(v+1)}{(v-1)^3},\qquad
+ S_a(t)=\sum_{m=1}^a h(t^m).
+\]
+For example, \((A,B,C)=(2,-3,1)\) gives \(h(v)=2/(v-1)^3\)
+and \(\xi=2M_3(b)\). A general triple lets us test every putative relation.
+Expanding the geometric series gives \(\xi=\sum_{m\ge1}h(b^m)\).
+In \eqref{eq:L}, replacing \(f(x)=(1-x)^{-1}\) by
+\((1-q^a x)^{-1}\) shifts the summation index from \(m\) to \(m+a\).
+Only the first \(a\) terms of the series for \(\xi\) are lost. Thus
+\[
+                   L((1-q^a x)^{-1})=\xi-S_a(b).
+\]
+The points \(q^m\) where \(L\) samples a function lie inside the unit
+disk. The poles \(b^a\) of these test fractions lie outside it, and
+each fraction introduces the same unknown \(\xi\).
+
+To clear denominators before evaluating at the actual base and series
+value, replace \(b,\xi\) by indeterminates \(t,X\) and treat \(A,B,C\)
+as independent indeterminates as well.
+For \(K\ge1\) set
+\[
+ F(x)=\prod_{a=1}^K(x-t^a),\qquad
+ D(x)=\prod_{a=1}^K(1-x/t^a).
+\]
+Define \(\cl_{t,X}\) on fractions with denominator dividing \(D\)
+by partial fractions, including the polynomial quotient. Assign
+\[
+ \mu_0=0,\qquad
+ \cl_{t,X}(x^j)=\mu_j=\frac{A+Bj+Cj^2}{t^j-1}\quad(j\ge1),\qquad
+ \cl_{t,X}((1-x/t^a)^{-1})=X-S_a(t).
+\]
+The determinant of these moments is
+\begin{equation}\label{eq:delta}
+ \Delta_K(t,X)=
+ \det\left[\cl_{t,X}\left(\frac{x^{i+j}}{D(x)}\right)\right]_{0\le i,j<K}.
+\end{equation}
+We suppress \(A,B,C\) in \(\Delta_K(t,X)\). At \(t=b,X=\xi\)
+its entries are the actual values of \(L\). For example, take \(K=1\)
+and the cube mixture \((A,B,C)=(2,-3,1)\). The determinant has just
+one entry, \(X-h(t)\). Multiplication by \((t-1)^3\) gives the
+integer polynomial \((t-1)^3 X-2\). At \(t=2,\ X=2M_3(2)\), this
+is twice the tail of the cube sum after its first term \(1\).
+
+The geometric poles, the moving denominator \(D\), and the use of
+a second Euler derivative follow the pure weight-three construction
+\cite[\S\S1--2]{Uplift}. Rational modifications of moment determinants
+are treated by Krattenthaler \cite[\S1]{Kratt}, and Zudilin uses
+geometric-node Hankel decay for a generalized \(q\)-logarithm
+\cite[\S4]{ZudHankel}. The arguments below give the mixed construction
+directly, including its weight-one coefficient.
+
+\section{How much of the base divides the determinant}
+
+For large \(K\) the determinant vanishes to high order at \(t=0\).
+A lower bound for that order tells us how many powers of the base we
+can divide out after clearing the denominators. Write
+\[
+ g_K(k)=\binom{(K-k)_++1}{2},\qquad
+ e_K=\frac{K^2(K+1)}2-\sum_{i=0}^{K-1}g_K(2i),
+ \qquad u_+=\max(u,0).
+\]
+
+\begin{lemma}\label{lem:base}
+As a rational function of \(t\) over \(\Q(A,B,C,X)\),
+\(\Ord_0\Delta_K\ge e_K\), where \(e_K\ge0\) and
+\(e_K=5K^3/12+O(K^2)\).
+\end{lemma}
+\begin{proof}
+Begin with the monic denominator \(F\). Dividing \(x^k\) by \(F\)
+gives a polynomial quotient with coefficients in \(\Z[t]\). Its
+moment is regular at zero because every \(\mu_j\) is. So are the
+finite tails \(S_a\), including their constant term \(-aA\).
+The moment of the proper part is a sum of terms
+\[
+              -\frac{t^{a(k-1)}}{F'(t^a)}(X-S_a(t)),\qquad 1\le a\le K ,
+\]
+since \((x-t^a)^{-1}=-t^{-a}(1-x/t^a)^{-1}\).
+Summing the orders \(\min(a,c)\) of the root differences
+for \(c\ne a\) gives \(\Ord_0 F'(t^a)=Ka-a(a+1)/2\).
+The displayed prefactor therefore has order
+\(a(a-1)/2+a(k-K)\), bounded below by \(-g_K(k)\).
+This includes \(k=0\), where the negative exponent in \(t^{a(k-1)}\)
+matters.
+
+Consequently a term indexed by a permutation \(\sigma\) in the
+monic-denominator determinant loses at most
+\(\sum_i g_K(i+\sigma(i))\) powers. The differences
+\(g_K(k+1)-g_K(k)\) are nondecreasing. If \(i<i'\) and \(j<j'\), then
+\[
+ g_K(i+j)+g_K(i'+j')\ge g_K(i+j')+g_K(i'+j).
+\]
+Removing inversions gives the largest loss at the identity permutation.
+Restoring \(D\) multiplies each entry by \((-1)^K t^{K(K+1)/2}\),
+giving the asserted order. Each summand of the loss is at most
+\(\binom{K+1}{2}\), so \(e_K\ge0\). Summing squares on an arithmetic
+progression gives
+\[
+  \sum_{0\le i<K/2}\binom{K-2i+1}{2}=K^3/12+O(K^2).\qedhere
+\]
+\end{proof}
+
+\section{Clearing the cyclotomic denominators}
+
+The remaining denominators vanish at roots of unity. At a primitive
+\(d\)-th root, the nodes \(t^a\) with indices congruent modulo \(d\)
+coincide. When \(d>K/2\), at most two nodes coincide at any point.
+This accounts for the two ranges in the multiplier below.
+Let \(\Phi_d\) be the \(d\)-th cyclotomic polynomial and put
+\begin{equation}\label{eq:clearer}
+ H_K(t)=\prod_{d=1}^K\Phi_d(t)^{c_d},\qquad
+ c_d=\begin{cases}
+ \lceil K^2/(4d)+2K+17d/16\rceil,&2d\le K,\\
+ 5(K-d)+3,&2d>K.
+ \end{cases}
+\end{equation}
+The degree \(\sum_{d\le K}c_d\varphi(d)\), where \(\varphi\)
+is Euler's totient, controls the size of this product at \(b\).
+On the scale \(K^3\log|b|\), division by the base power saves \(5/12\),
+and the triple zeros in Section~\ref{sec:decay} will save another
+\(1/9\). The multiplier must cost less than their sum. Its exponents
+come from the sharpened pure weight-three estimate
+\cite[\S4 and Appendix A]{Uplift}.
+We show why the same exponents suffice for arbitrary \(A,B,C\).
+
+\begin{lemma}\label{lem:clear}
+The polynomial \(P_K=t^{-e_K}H_K\Delta_K\) belongs to
+\(\Z[t,A,B,C,X]\). Moreover
+\[
+ \deg H_K\le\gamma K^3+O(K^2\log(2K)),\qquad
+ \gamma=\frac{321}{64\pi^2},\qquad \sum_{d\le K}c_d=O(K^2\log(2K)).
+\]
+\end{lemma}
+\begin{proof}
+Fix a primitive \(d\)-th root \(\omega\), put \(\tau=t-\omega\), and
+work locally with \(A,B,C,X\) independent. A cluster \(I_r\) consists
+of the \(a\) in \(1,\ldots,K\) congruent to \(r\bmod d\).
+Write \(m=|I_r|,\ F_r=\prod_{a\in I_r}(x-t^a)\), and use the basis
+\((F/F_r)(x-\omega^r)^j,\ 0\le j<m\), over the clusters.
+The determinant of this change of basis is nonzero at \(t=\omega\),
+so the order we are estimating is preserved. Modulo \(\tau\), each group vanishes
+on the other primary factors and gives powers times a unit on its
+own factor \((x-\omega^r)^m\).
+
+In a product of two basis elements divided by \(D\), the polynomial
+quotient has integral local coefficients and degree at most \(K-2\).
+Its moment has at most a simple pole. Between different clusters
+the product is divisible by \(F\), so it has no proper part. Within
+one cluster the residue numerator at \(t^a\) vanishes to order at least
+\(j+k\), and \(F'(t^a)\) has order \(m-1\). Since \(X-S_a\) has
+at most a triple pole, the proper-part moment has order at least
+\(j+k-m-2\).
+
+For \(2d\le K\), scale each row and column of local index \(j\) by
+\(\tau^{w_j}\), where \(w_j=\max(1/2,(m+2)/2-j)\). Half powers mean
+that we adjoin a square root of \(\tau\). The sum of two weights pays
+for the polynomial part and, within a cluster, for the proper part.
+The cost in determinant order for one cluster is
+\[
+ 2\sum_{j=0}^{m-1}w_j=\sum_{j=0}^{m-1}\max(1,m+2-2j)
+                  \le m^2/4+2m+1.
+\]
+The cluster sizes are \(\lfloor K/d\rfloor\) and \(\lceil K/d\rceil\),
+with sum \(K\) and sum of squares at most \(K^2/d+d/4\).
+This gives the low-order exponent in \eqref{eq:clearer}.
+
+For \(2d>K\), put \(u=K-d\). The \(u\) double clusters are
+\(\{a,a+d\}\) with \(1\le a\le u<d\). Use \(V=F/F_r\) and
+\(V(x-t^{a+d})\) in each, another local unit change of basis.
+Any proper-part entry involving the second vector loses its upper
+residue exactly. At the lower node its zero of local order one
+cancels the possible simple residue denominator, and \(S_a\) is
+regular there since \(a<d\). The entry from two copies of \(V\)
+has at most a fourth-order pole. Weights \(2,0\) thus suffice for
+the proper parts.
+The singleton \(a=d\) needs weight \(3/2\), and the other singletons
+all have \(a<d\). The total cost so far is \(4u+3\).
+
+The sole possible pole among polynomial moments here is \(\mu_d\).
+Its coefficient form on polynomials \(f,g\) of degree less than \(K\)
+is the coefficient of \(x^d\) in the polynomial quotient of \(fg/D\).
+If \(\deg f\le d\), the quotient has degree at most \(d-1\) for every
+\(g\) in this space. All such \(f\) therefore lie in its radical.
+The coefficient form is locally integral and has rank at most
+\((K-d-1)_+\) over the fraction field. Row and column scalings preserve
+this rank. The scaled full matrix therefore has the form \(U+\tau^{-1}V_1\)
+with \(U,V_1\) locally integral and \(\rank V_1\le(K-d-1)_+\).
+Multilinearity in the columns costs at most that many extra inverse
+powers. Thus \(4u+3+(u-1)_+\le5u+3\), as required.
+
+To return to integer coefficients, put \(R=\Z[A,B,C,X]\).
+Monic division by \(F\), followed by partial fractions, introduces
+only powers of \(t\) and factors \(t^j-1\) with \(1\le j\le K\)
+in the denominators. The displayed moments have the same property.
+The local estimates therefore cancel every cyclotomic denominator.
+Dividing by the monic cyclotomic factors in \(R[t]\) gives
+\(H_K\Delta_K\in R[t,t^{-1}]\). Lemma~\ref{lem:base} removes the
+indicated power of \(t\).
+
+For the degree we use the cyclotomic counting method of
+Bundschuh and Zudilin \cite[\S3]{BZ}. Summing
+\(\ph(d)/d=\sum_{k\mid d}\mu(k)/k\), with \(\mu\) the M\"obius function,
+gives \(\sum_{d\le y}\ph(d)/d=6y/\pi^2+O(\log(2y))\).
+Partial summation gives the corresponding sums of \(\ph(d)\) and
+\(d\ph(d)\) with main terms \(3y^2/\pi^2\) and \(2y^3/\pi^2\)
+and errors \(O(y\log(2y))\) and \(O(y^2\log(2y))\).
+Substitution in \(\sum c_d\ph(d)\) gives leading contributions
+\(161/(64\pi^2)\) and \(5/(2\pi^2)\) times \(K^3\) in the two ranges.
+The ceilings contribute \(O(K^2)\). Summing \(c_d=O(K^2/d)\)
+gives the last bound.
+\end{proof}
+
+\begin{samepage}
+The rank correction can already be seen when \(K=5\) and \(d=3\).
+The clusters are \(\{1,4\}\), \(\{2,5\}\), and \(\{3\}\), giving
+the proper parts a pole-order bound of \(4\cdot2+3=11\).
+Among products of two monomials of degree at most four, only
+\(x^4x^4\) yields a quotient of degree three after division by \(D\).
+The correction therefore allows one more power. This extra power
+occurs for \((A,B,C,X)=(3,-2,5,7)\), where the full determinant has
+pole order \(12\) at a primitive cube root of unity.\footnote{From the
+directory containing the Mersenne verification programs~\cite{MersenneCode},
+run \texttt{python3 -B independent-checks.py}.}\par
+\end{samepage}
+
+\section{Decay at the value of the series}\label{sec:decay}
+
+We now estimate the determinant at \(t=b,X=\xi\). Consider one
+test polynomial \(f(x)=(x-q)^3\). Its first two Euler derivatives
+vanish at \(q\), and \(f(q)-f(0)=q^3\), so the \(m=1\) summand
+in \eqref{eq:L} is \(Aq^3\). In the determinant we repeat this
+construction at \(q,q^2,\ldots\). The same roots that kill the
+derivatives also make the surviving value at zero small.
+
+\begin{lemma}\label{lem:decay}
+Fix \(|b|>1\) and complex \(A,B,C\). At the true value \(\xi\),
+\[
+ |P_K(b,A,B,C,\xi)|\le
+ \exp\{-\ep K^3\log |b|+O_{b,A,B,C}(K^2\log(2K))\},
+ \qquad \ep=\frac{19}{36}-\frac{321}{64\pi^2}>0 .
+\]
+\end{lemma}
+\begin{proof}
+Put \(r=|q|\) and, for \(j\ge0\), take
+\[
+ B_j(x)=\prod_{\ell=1}^j(x-q^{\lceil\ell/3\rceil}),\quad
+ s_j=\sum_{\ell=1}^j\lceil\ell/3\rceil,\quad R_j=\lceil j/3\rceil .
+\]
+These polynomials are monic, so changing both rows and columns
+preserves \(\Delta_K\). For one entry write \(R=\max(R_i,R_j)\),
+\(W=1/D\), and \(h=B_iB_jW\). On \(|x|\le1\), \(W\) is bounded by
+\(\prod_{a\ge1}(1-r^a)^{-1}\). Cauchy's inequalities bound \(W,W',W''\)
+on \(|x|\le r\) uniformly in \(K\).
+
+If \(1\le m<R\), at least one of \(B_i,B_j\) contains the factor
+\((x-q^m)^3\). The whole summand in \eqref{eq:L} is then
+\(-A h(0)\), of modulus \(|A|r^{s_i+s_j}\).
+There are fewer than \(K\) such terms. For \(m\ge\max(1,R)\) and on
+the entire segment from 0 to \(q^m\), each factor \(x-q^a\) has
+modulus at most \(2r^a\). One ordinary derivative of a factor
+costs at most \(r^{-R}\) relative to this product bound. Thus
+\[
+ |h(q^m)-h(0)|\le C_r(i+j+1)\,2^{i+j}r^{s_i+s_j}r^{m-R},
+\]
+by integrating \(h'\) along the segment. For \(\theta h\) and
+\(\theta^2 h\), each term involving a differentiated root factor
+gains at least \(r^{m-R}\), since either positive Euler derivative
+of \(x-q^a\) equals \(x\). If only \(W\) is differentiated, its
+positive Euler derivatives are \(O_r(r^m)\). There are at most
+\((i+j+1)^2\) ordered choices of factors for two derivatives.
+These estimates include \(R=0\). Summation over \(m\) proves
+\[
+ |L(h)|\le C_{r,A,B,C}(K+1)^2\,2^{i+j}r^{s_i+s_j}.
+\]
+Factor \(2^i r^{s_i}\) from row \(i\) and \(2^j r^{s_j}\) from
+column \(j\). Leibniz's formula costs a further
+\(K![C_{r,A,B,C}(K+1)^2]^K\). Since
+\(2\sum_{j<K}s_j=K^3/9+O(K^2)\), this proves
+\(\log|\Delta_K(b,\xi)|\le -(K^3/9)\log|b|+O_{b,A,B,C}(K^2)\),
+with the usual interpretation at zero.
+
+For fixed \(|b|>1\), the cyclotomic product formula gives
+\(\log|\Phi_d(b)|=\ph(d)\log|b|+O_b(1)\) uniformly in \(d\).
+Indeed the error is bounded by
+\(\sum_{h\ge1}-\log(1-|b|^{-h})<\infty\).
+In units of \(K^3\log|b|\), the triple zeros supply \(1/9\) of
+decay and division by the common power of \(b\) supplies another
+\(5/12\) by Lemma~\ref{lem:base}. The cyclotomic multiplier costs
+at most \(\gamma\) by Lemma~\ref{lem:clear}. Their difference
+\(1/9+5/12-\gamma=\ep\) is positive already from \(\pi>31/10\).
+\end{proof}
+
+\section{Nonvanishing for arbitrarily large sizes}
+
+The coefficients \(A,B,C\) may have either sign in a rational
+relation, so we need a nonvanishing argument that also works without
+positivity. We encode the moments in a meromorphic function. A
+singular determinant of size \(k\) imposes interpolation conditions
+at the exterior points \(b,\ldots,b^k\).
+If all large sizes were singular, successive approximations would
+coincide. The function's poles at the interior points \(q,q^2,\ldots\)
+will rule this out. We use the interpolation argument of
+\cite[\S5]{Uplift}, in the complex-node form of \cite[\S5]{Golden}.
+
+\begin{lemma}\label{lem:nonzero}
+If \(|b|>1\) and \((A,B,C)\ne(0,0,0)\), then
+\(\Delta_K(b,\xi)\ne0\) for arbitrarily large \(K\).
+\end{lemma}
+\begin{proof}
+For \(|z|>|q|\), define \(\mathcal F(z)=L((z-x)^{-1})\).
+Its summand at \(u=q^m\) is
+\[
+ A\left(\frac1{z-u}-\frac1z\right)
+ +\frac{(B+C)u}{(z-u)^2}+\frac{2Cu^2}{(z-u)^3}.
+\]
+The series is analytic at infinity. It converges locally normally
+away from zero and the nodes, giving a meromorphic continuation to
+\(\C\setminus\{0\}\). At each node the highest nonzero
+weight supplies a genuine pole, of order three if \(C\ne0\), two
+if \(C=0,B\ne0\), and one otherwise. Hence \(\mathcal F\) is nonrational.
+
+If the size \(k\) determinant is zero, there is a nonzero polynomial
+\(Q_k\) of degree less than \(k\) with \(L(x^jQ_k/D_k)=0\) for
+\(0\le j<k\), where \(D_k(x)=\prod_{a=1}^k(1-q^a x)\).
+We seek a polynomial \(T_k\) for which the error
+\(\mathcal F Q_k-T_k\) vanishes at \(b,\ldots,b^k\) and is
+\(O(1/z)\) at infinity. The factor \(D_k(z)\) gives the first
+condition and the moment equations give the second. Put
+\[
+ E_k(z)= D_k(z)L_x\!\left(\frac{Q_k(x)}{(z-x)D_k(x)}\right),
+ \qquad T_k(z)=\mathcal F(z)Q_k(z)-E_k(z).
+\]
+Combining fractions in the expression for \(T_k\) produces the
+numerator \(Q_k(z)D_k(x)-D_k(z)Q_k(x)\), divisible by \(z-x\).
+Thus \(T_k\) is a polynomial of degree less than \(k\).
+The \(k\) moment equations cancel the first \(k\) terms of the expansion
+of the interior transform at infinity, giving \(E_k(z)=O_k(z^{-1})\).
+Indeed \(L\) is bounded in terms of the supremum of a function on
+any fixed disk of radius between \(|q|\) and 1, by Cauchy's
+inequalities and \eqref{eq:L}. The remainder after these \(k\)
+terms is \(O_k(|z|^{-k-1})\) on that disk. The same boundedness
+gives holomorphy of the interior transform at \(b,\ldots,b^k\).
+Consequently \(E_k\) vanishes at those \(k\) points.
+
+If two consecutive sizes are singular, the polynomial
+\(T_{k+1}Q_k-T_kQ_{k+1}=E_kQ_{k+1}-E_{k+1}Q_k\) has degree at
+most \(k-1\) by its growth at infinity, and vanishes at all \(k\)
+common nodes. It is zero. If every sufficiently large size were
+singular, all fractions \(T_k/Q_k\) in that range would therefore
+represent one fixed reduced fraction \(T/Q\). Write
+\(T_k=V_kT,\ Q_k=V_kQ\) with \(V_k\ne0\), allowing \(T=0,Q=1\).
+The function \(E=\mathcal F Q-T\) is nonzero, meromorphic at infinity,
+and \(V_k E=O_k(1/z)\). It follows that \(E(z)\sim c z^{-h}\) there
+with \(h\ge1,\ c\ne0\), and \(\deg V_k\le h-1\).
+Since \(|b^a|\to\infty\), the asymptotic gives \(E(b^a)\ne0\) for
+all sufficiently large \(a\). At each such point with \(a\le k\),
+\(E_k(b^a)=V_k(b^a)E(b^a)=0\), so \(V_k(b^a)=0\). The number of
+these distinct zeros tends to infinity, contradicting the fixed
+degree bound.
+\end{proof}
+
+For an integer \(b\ge2\), a rational dependence gives integers
+\(A,B,C,\xi\) with \((A,B,C)\ne0\). Lemma~\ref{lem:clear} then
+makes \(P_K(b,A,B,C,\xi)\) an integer. Its multiplier
+\(b^{-e_K}H_K(b)\) is nonzero, so Lemma~\ref{lem:nonzero} gives a
+nonzero integer for arbitrarily large \(K\). Lemma~\ref{lem:decay}
+makes its absolute value less than one for all sufficiently large \(K\).
+This contradiction and \eqref{eq:triangle} prove Theorem~\ref{thm:main}.
+
+\section{A consequence for algebraic integers}
+
+For an algebraic base \(b\), every partial sum of \(M_j(b)\) lies
+in \(\Q(b)\). A failure of independence would give coefficients
+\(A,B,C\) in this field, not all zero, for which the combination
+\(\xi=AZ_1(b)+BZ_2(b)+CZ_3(b)\) also lies in \(\Q(b)\). This value
+then has a conjugate at each embedding, even when the series at the
+conjugate base diverge. We evaluate the polynomial \(P_K\) at the
+conjugate parameters and bound their contribution to the field norm.
+
+\begin{corollary}\label{cor:field}
+Let \(b\) be an algebraic integer with \(|b|>1\). Suppose all of
+its conjugates other than \(b\) and \(\bar b\) have modulus at most
+one. Then \(1,M_1(b),M_2(b),M_3(b)\) are linearly independent
+over \(\Q(b)\). This includes all real Pisot and Salem bases.
+\end{corollary}
+\begin{proof}
+We first bound \(P_K(t,A,B,C,Y)\) on \(|t|\le1\) for any fixed
+complex \(A,B,C,Y\). We give the details of the circle argument
+from \cite[\S4]{Golden} because the conjugate of \(\xi\) at such a
+place is simply a fixed number \(Y\).
+On \(|t|=1+1/K\), the nodes \(r_a=t^a\) have modulus at most \(e\),
+and \(|1-r_a/r_c|\ge1/(K+1)\) for \(a\ne c\). Thus
+\[
+ 1/D(x)=\sum_{a=1}^K\frac{w_a}{1-x/r_a},\qquad
+ |w_a|=\prod_{c\ne a}|1-r_a/r_c|^{-1}\le(K+1)^{K-1}.
+\]
+Each tail \(S_a\) is \(O_{A,B,C}(K^4)\) and \(\mu_j=O_{A,B,C}(K^3)\)
+for \(0\le j\le2K\), since \(|t^m-1|\ge1/K\) for \(m\ge1\).
+For \(U_{a,j}=\cl_{t,Y}(x^j/(1-x/r_a))\) the exact recurrence
+\[
+ U_{a,0}=Y-S_a,\qquad U_{a,j+1}=r_a(U_{a,j}-\mu_j)
+\]
+bounds \(|U_{a,j}|\) by \(\exp(O_{A,B,C,Y}(K+\log(2K)))\) for
+\(j\le2K\). Summing \(w_a U_{a,j}\) and expanding the determinant
+gives \(\log^+|\Delta_K|=O_{A,B,C,Y}(K^2\log(2K))\).
+
+On that circle \(1/(K+1)\le |1-t^{-h}|\le2\) for \(h\ge1\).
+M\"obius inversion bounds
+\(\log|\Phi_d(t)|\le\ph(d)\log(1+1/K)+\tau(d)\log(2K+2)\),
+where \(\tau(d)\) counts the divisors. In \eqref{eq:clearer},
+\(c_d=O(K^2/d)\), and
+\(\sum_{d\le K}\tau(d)/d\le(1+\log K)^2\).
+Lemma~\ref{lem:clear} therefore gives
+\(\log^+|H_K|=O(K^2\log^3(2K))\). Also \(|t^{-e_K}|\le1\).
+The maximum modulus principle for the integral polynomial now yields
+\[
+ \max_{|t|\le1}\log^+|P_K(t,A,B,C,Y)|
+                  =O_{A,B,C,Y}(K^2\log^3(2K))=o(K^3).
+\]
+
+Scale any putative field relation by one integer so that its
+coefficients \(A,B,C\) and value \(\xi\) are algebraic integers.
+For the unbounded sequence of nonzero sizes, \(P_K(b,A,B,C,\xi)\)
+then has a nonzero integer norm. At the specified embedding,
+Lemma~\ref{lem:decay} gives exponential decay on the \(K^3\) scale.
+If \(b\) is nonreal, the complex conjugate of this embedding gives
+the same absolute value. Each remaining embedding costs only
+\(o(K^3)\) in the logarithm by the disk bound at its fixed conjugate
+parameters. The absolute norm tends to zero on this sequence,
+a contradiction. The change of variables \eqref{eq:triangle}
+also holds by absolute convergence for complex \(|b|>1\).
+\end{proof}
+
+\section*{Verification}
+Another AI model independently audited the mathematics and exposition
+of the 18 November 2026 draft. It verified Theorem~\ref{thm:main}
+and Corollary~\ref{cor:field}, rederived the decay margin, and
+reproduced the finite checks with independently written code.
+
+\small
+\begin{thebibliography}{9}
+\setlength{\itemsep}{1pt}
+\bibitem{PVA} K. Postelmans and W. Van Assche, Irrationality of
+\(\zeta_q(1)\) and \(\zeta_q(2)\), \emph{J. Number Theory}
+\textbf{126} (2007), 119--154. \href{https://arxiv.org/abs/math/0604312}{arXiv:math/0604312}.
+\bibitem{ZudPair} W. Zudilin, Approximations to \(q\)-logarithms
+and \(q\)-dilogarithms, with applications to \(q\)-zeta values,
+\emph{J. Math. Sci. (N.Y.)} \textbf{137} (2006), 4673--4683.
+\href{https://www.math.ru.nl/~zudilin/PS/qhyp.pdf}{Theorem 2}.
+\bibitem{Uplift} uplift-universal-inc, Irrationality of the Lambert-series
+value \(\zeta_{1/p}(3)\), research draft, 12 October 2026.
+\href{https://github.com/uplift-universal-inc/qzeta_3-irrationality/blob/main/paper/main.pdf}{Manuscript}.
+\bibitem{UpliftCompanion} uplift-universal-inc, Results reserved for
+companion articles, entry FUT-LI.
+\href{https://github.com/uplift-universal-inc/qzeta_3-irrationality/blob/main/docs/FUTURE_RESULTS.md}{Research inventory}.
+\bibitem{Kratt} C. Krattenthaler, A determinant identity for moments
+of orthogonal polynomials that implies Uvarov's formula for the
+orthogonal polynomials of rationally related densities.
+\href{https://arxiv.org/abs/2103.03969}{arXiv:2103.03969}.
+\bibitem{ZudHankel} W. Zudilin, On the irrationality of generalized
+\(q\)-logarithm, \emph{Res. Number Theory} \textbf{2} (2016), article 15.
+\href{https://doi.org/10.1007/s40993-016-0042-x}{doi:10.1007/s40993-016-0042-x}.
+\bibitem{BZ} P. Bundschuh and W. Zudilin, Irrationality measures for
+certain \(q\)-mathematical constants, \emph{Math. Scand.} \textbf{101}
+(2007), 104--122. \href{https://doi.org/10.7146/math.scand.a-15034}{doi:10.7146/math.scand.a-15034}.
+\bibitem{Golden} twinheterodox, The weight-three Lambert sum at the
+golden ratio is irrational, Hexagon submission 2611.00623v1 (2026),
+\S\S3--5.
+\href{https://github.com/twinheterodox/algebraic-base-lambert-values/blob/main/output/pdf/algebraic-base-lambert-values.pdf}{Manuscript PDF}.
+\bibitem{MersenneCode} twinheterodox, Verification programs for
+the reciprocal Mersenne cubes (2026).
+\href{https://github.com/twinheterodox/algebraic-base-lambert-values/tree/main/checks/mersenne}{Code and reference results}.
+\end{thebibliography}
+\end{document}

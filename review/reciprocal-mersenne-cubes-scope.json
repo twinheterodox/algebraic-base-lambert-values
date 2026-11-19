@@ -1,0 +1,13 @@
+{
+  "paper": "The sum of the reciprocal Mersenne cubes is irrational",
+  "reviewed_version": "Seven-page manuscript of 18 November 2026.",
+  "independent_review": "A separate AI model audited the mathematics and exposition. It found no substantive gap in Theorem 1 or Corollary 6, rederived the cubic decay margin, checked nonvanishing for arbitrarily large determinant sizes, and reproduced the reported finite calculations with independently written code.",
+  "subsequent_revision": "The eight-page version opens with the three-to-four independence result, illustrates the determinant at sizes one and five, and specifies the initial domain of the Cauchy transform. The theorem, corollary, four lemmas and displayed proof identities carry over from the audited draft. The verification citation points readers to the programs accompanying this edition.",
+  "programs": {
+    "check_mixed_functional.py": "Exact rational comparisons of 96 monomial evaluations, 148 triple-root basis evaluations and 40 early-node subtractions.",
+    "check_integerization.py": "17 integer-base cases, including base 6, with 71 affine moment comparisons, 61 cleared coefficients and 17 leading coefficients. It also checks a strict rational bound for the cubic margin.",
+    "check_cyclotomic.py": "Symbolic cyclotomic clearing and orders at zero through size three, and the rank of the polynomial-quotient contribution at size five.",
+    "independent-checks.py": "Fresh implementation by the independent auditor, including rational and Gaussian bases, 32,896 local denominator comparisons, and two size-five specializations. One has pole order 12 at a primitive cube root."
+  },
+  "replay": "Run the four programs through the supplied verification runner to compare their outputs with the recorded results. The estimates for unrestricted sizes are proved in the manuscript."
+}

@@ -1,0 +1,10 @@
+{
+  "source": "paper/reciprocal-mersenne-cubes.tex",
+  "source_sha256": "a92925405dcd6d47b4d9d279130ad45e9de640011148730a8a98cc28d8b47d61",
+  "pdf": "output/pdf/reciprocal-mersenne-cubes.pdf",
+  "pdf_sha256": "728a258924e3f81c4b0afc56fefea058662f395822340b12e5be04ade210a305",
+  "pages": 8,
+  "latex_engine": "pdfTeX 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian)",
+  "unresolved_references": false,
+  "overfull_boxes": false
+}

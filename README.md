@@ -18,6 +18,14 @@ At the Gaussian integer $1+i$, every partial sum has rational real and imaginary
 
 Run `python3 -B checks/check_height.py` from the repository root to reproduce the two height ratios, the exact comparisons in Corollary 1.2, the pole-moment identity, and the leading coefficients in Lemma 4.1 for sizes 1 through 4. [Expected results](checks/height-results.json) · [Review scope](review/lambert-height-scope.json)
 
+## The sum of the reciprocal Mersenne cubes is irrational
+
+Postelmans and Van Assche proved that $1$, the Erdős–Borwein constant $\sum_{n\ge1}(2^n-1)^{-1}$, and the sum of the squared reciprocals are linearly independent over $\mathbb Q$. Adjoining $\sum_{n\ge1}(2^n-1)^{-3}$ raises the dimension to four. The paper proves the same four-value independence for every integer base $b\ge2$. It also proves independence over $\mathbb Q(b)$ when $b$ is an algebraic integer of modulus greater than one and every conjugate other than $b$ and $\bar b$ lies in the closed unit disk.
+
+[Read the paper (PDF)](output/pdf/reciprocal-mersenne-cubes.pdf) · [LaTeX source](paper/reciprocal-mersenne-cubes.tex) · [Verification programs and results](checks/mersenne/) · [Audit scope](review/reciprocal-mersenne-cubes-scope.json)
+
+From the repository root, install the dependencies listed below and run `python3 -B checks/verify.py mersenne` to reproduce all four programs. To build the PDF, run `python3 -B tools/build_paper.py reciprocal-mersenne-cubes`.
+
 ## Reproduce the checks
 
 Run these commands from the repository root in a Python environment.
